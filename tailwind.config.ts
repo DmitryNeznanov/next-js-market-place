@@ -17,9 +17,9 @@ const config: Config = {
 				background: 'rgb(var(--color-background) / <alpha-value>)',
 				accent: 'rgb(var(--color-accent) / <alpha-value>)',
 				gray: {
-					'dark-gray': 'rgb(var(--color-dark-gray) / <alpha-value>)',
+					dark: 'rgb(var(--color-dark-gray) / <alpha-value>)',
 					DEFAULT: 'rgb(var(--color-gray) / <alpha-value>)',
-					'light-gray': 'rgb(var(--color-light-gray) / <alpha-value>)',
+					light: 'rgb(var(--color-light-gray) / <alpha-value>)',
 				},
 				error: '#ff3636',
 			},

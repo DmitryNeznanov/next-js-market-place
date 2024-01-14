@@ -30,7 +30,6 @@ export default function RootLayout({
 			</body>
 		</html>
 		// ! svg list 100% w
-		// ! search
 		// ! animations
 		// ! dark mode
 	)

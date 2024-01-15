@@ -21,9 +21,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html
-			className="bg-[#FFB6B6]"
+			className="bg-[#FFB6B6] "
 			lang="en"
 		>
+			<head>
+				<script type="text/javascript"></script>
+			</head>
 			<body className={`${DMSans.variable} ${JosefinSans.variable}`}>
 				<Header />
 				{children}

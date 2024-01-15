@@ -3,32 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-	:root {
-		--color-primary: 6 6 6;
-		--color-background: 255 255 255;
-		--color-accent: 255 0 184;
-		--color-gray: 225 225 225;
-		--color-dark-gray: 118 118 118;
-		--color-light-gray: 245 245 245;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--color-primary: 255 255 255;
-			--color-background: 6 6 6;
-			--color-accent: 255 92 209;
-			--color-gray: 82 82 82;
-			--color-dark-gray: 120 120 120;
-			--color-light-gray: 159 159 159;
-		}
-	}
 }
 
 @layer components {
-	.button-primary {
+	/* .button-primary {
 		@apply py-2 px-6 border border-gray bg-transparent text-primary font-DMSans text-base capitalize hover:bg-accent hover:border-accent;
-	}
+	} */
 	.input-primary {
-		@apply py-3 border-b-[.0625rem] border-b-primary bg-transparent text-primary font-DMSans text-md capitalize focus:outline-none;
+		@apply py-3 border-b-[.0625rem] border-b-grey-600 bg-transparent text-grey-600 dark:text-white font-DMSans text-md capitalize placeholder:text-inherit focus:outline-none;
 	}
 }

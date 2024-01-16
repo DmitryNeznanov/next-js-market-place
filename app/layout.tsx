@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { DM_Sans, Josefin_Sans } from 'next/font/google'
 import './globals.css'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 const DMSans = DM_Sans({ subsets: ['latin'], variable: '--font-DMSans' })
 const JosefinSans = Josefin_Sans({
@@ -21,19 +22,17 @@ export default function RootLayout({
 }) {
 	return (
 		<html
-			className="bg-[#FFB6B6] "
+			className="bg-[#FFB6B6]"
 			lang="en"
 		>
-			<head>
-				<script type="text/javascript"></script>
-			</head>
 			<body className={`${DMSans.variable} ${JosefinSans.variable}`}>
 				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 		// ! svg list 100% w
 		// ! animations
-		// ! dark mode
+		// ! dark mode preference && change icon
 	)
 }

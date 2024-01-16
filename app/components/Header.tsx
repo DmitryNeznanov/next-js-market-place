@@ -116,7 +116,10 @@ export default function Header() {
 
 										<defs>
 											<clipPath id="clip0_88_11">
-												<rect width="22" height="22" />
+												<rect
+													width="22"
+													height="22"
+												/>
 											</clipPath>
 										</defs>
 									</svg>
@@ -235,7 +238,10 @@ export default function Header() {
 
 										<defs>
 											<clipPath id="clip0_88_11">
-												<rect width="22" height="22" />
+												<rect
+													width="22"
+													height="22"
+												/>
 											</clipPath>
 										</defs>
 									</svg>
@@ -272,7 +278,11 @@ export default function Header() {
 										</g>
 										<defs>
 											<clipPath id="clip0_114_19">
-												<rect width="22" height="22" fill="white" />
+												<rect
+													width="22"
+													height="22"
+													fill="white"
+												/>
 											</clipPath>
 										</defs>
 									</svg>
@@ -306,7 +316,11 @@ export default function Header() {
 										</g>
 										<defs>
 											<clipPath id="clip0_88_15">
-												<rect width="22" height="22" fill="white" />
+												<rect
+													width="22"
+													height="22"
+													fill="white"
+												/>
 											</clipPath>
 										</defs>
 									</svg>
@@ -336,7 +350,11 @@ export default function Header() {
 										</g>
 										<defs>
 											<clipPath id="clip0_88_8">
-												<rect width="22" height="22" fill="white" />
+												<rect
+													width="22"
+													height="22"
+													fill="white"
+												/>
 											</clipPath>
 										</defs>
 									</svg>
@@ -375,7 +393,10 @@ export default function Header() {
 								['blog', '/blog'],
 								['contact', '/contact'],
 							].map(([title, link]) => (
-								<li className="" key={uuidv4()}>
+								<li
+									className=""
+									key={uuidv4()}
+								>
 									<Link
 										className={`font-DMSans text-xl capitalize ${
 											pathName === link
@@ -424,7 +445,10 @@ export default function Header() {
 
 										<defs>
 											<clipPath id="clip0_88_11">
-												<rect width="22" height="22" />
+												<rect
+													width="22"
+													height="22"
+												/>
 											</clipPath>
 										</defs>
 									</svg>
@@ -461,7 +485,11 @@ export default function Header() {
 										</g>
 										<defs>
 											<clipPath id="clip0_88_19">
-												<rect width="22" height="22" fill="white" />
+												<rect
+													width="22"
+													height="22"
+													fill="white"
+												/>
 											</clipPath>
 										</defs>
 									</svg>
@@ -495,7 +523,11 @@ export default function Header() {
 										</g>
 										<defs>
 											<clipPath id="clip0_88_15">
-												<rect width="22" height="22" fill="white" />
+												<rect
+													width="22"
+													height="22"
+													fill="white"
+												/>
 											</clipPath>
 										</defs>
 									</svg>
@@ -525,7 +557,11 @@ export default function Header() {
 										</g>
 										<defs>
 											<clipPath id="clip0_88_8">
-												<rect width="22" height="22" fill="white" />
+												<rect
+													width="22"
+													height="22"
+													fill="white"
+												/>
 											</clipPath>
 										</defs>
 									</svg>

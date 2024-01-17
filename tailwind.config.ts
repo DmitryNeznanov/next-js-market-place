@@ -20,7 +20,7 @@ const config: Config = {
 					'400': 'rgba(255, 92, 209, 1)',
 					DEFAULT: 'rgba(255, 0, 184, 1)',
 				},
-				grey: {
+				gray: {
 					'100': 'rgba(245, 245, 245, 1)',
 					'200': 'rgba(225, 225, 225, 1)',
 					DEFAULT: 'rgba(159, 159, 159, 1)',

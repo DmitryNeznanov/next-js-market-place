@@ -31,8 +31,6 @@ export default function RootLayout({
 				<Footer />
 			</body>
 		</html>
-		// ! svg list 100% w
-		// ! animations
-		// ! dark mode preference && change icon
+		// ? getElement bug?
 	)
 }

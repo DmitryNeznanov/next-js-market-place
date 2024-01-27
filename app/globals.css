@@ -3,13 +3,40 @@
 @tailwind utilities;
 
 @layer base {
+	:root {
+		--color-primary: 6 6 6;
+		--color-background: 255 255 255;
+		--color-accent: 255 0 184;
+		--color-gray: 225 225 225;
+		--color-light-gray: 120 120 120;
+		--color-error: 255 54 54 1;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--color-primary: 255 255 255;
+			--color-background: 6 6 6;
+			--color-accent: 255 92 209;
+			--color-gray: 77 77 77;
+			--color-light-gray: 118 118 118;
+			--color-error: 255 54 54 1;
+		}
+	}
+	[data-theme='dark'] {
+		--color-primary: 255 255 255;
+		--color-background: 6 6 6;
+		--color-accent: 255 92 209;
+		--color-gray: 77 77 77;
+		--color-light-gray: 118 118 118;
+		--color-error: 255 54 54 1;
+	}
 }
 
 @layer components {
 	.button-primary {
-		@apply py-2 px-6 border border-black dark:border-white bg-transparent text-black dark:text-white text-primary font-DMSans text-base capitalize hover:bg-accent hover:border-accent;
+		@apply py-2 px-6 border border-background bg-transparent text-primary font-DMSans text-base capitalize hover:bg-accent hover:border-accent;
 	}
 	.input-primary {
-		@apply py-3 border-b-[.0625rem] border-b-gray-600 bg-transparent text-gray-600 font-DMSans text-md capitalize placeholder:text-inherit focus:outline-none;
+		@apply py-3 border-b-[.0625rem] border-b-primary bg-transparent text-primary font-DMSans text-md capitalize placeholder:text-inherit focus:outline-none;
 	}
 }

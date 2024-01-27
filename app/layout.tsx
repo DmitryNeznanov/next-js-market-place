@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html
-			className="bg-[#FFB6B6]"
+			className="bg-dev"
 			lang="en"
 		>
 			<body className={`${DMSans.variable} ${JosefinSans.variable}`}>
@@ -31,6 +31,6 @@ export default function RootLayout({
 				<Footer />
 			</body>
 		</html>
-		// ? getElement bug?
+		// inline SVG
 	)
 }

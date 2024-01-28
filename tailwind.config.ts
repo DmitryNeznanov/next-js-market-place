@@ -56,6 +56,10 @@ const config: Config = {
 				md: ['.875rem', { fontWeight: '400' }],
 				xl: ['1.25rem', { fontWeight: '400' }],
 			},
+			listStyleImage: {
+				dot: "url('/public/shapes/dot.svg')",
+				'dot-dark': "url('/public/shapes/dot-dark.svg')",
+			},
 			container: {
 				center: true,
 				padding: {

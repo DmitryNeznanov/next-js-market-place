@@ -10,31 +10,31 @@ export default function Navigation({
 	toggleHamburgerMenu: Function
 	toggleSearch: Function
 }) {
-	const [darkTheme, setDarkTheme] = useState(undefined)
-	const handleToggle = (event) => {
-		setDarkTheme(event.target.checked)
-	}
-	const storeUserSetPreference = (pref) => {
-		localStorage.setItem('theme', pref)
-	}
-	const root = document.documentElement
-	useEffect(() => {
-		const initialColorValue = root.style.getPropertyValue(
-			'--initial-color-mode'
-		)
-		setDarkTheme(initialColorValue === 'dark')
-	}, [])
-	useEffect(() => {
-		if (darkTheme !== undefined) {
-			if (darkTheme) {
-				root.setAttribute('data-theme', 'dark')
-				storeUserSetPreference('dark')
-			} else {
-				root.removeAttribute('data-theme')
-				storeUserSetPreference('light')
-			}
-		}
-	}, [darkTheme])
+	// const [darkTheme, setDarkTheme] = useState(undefined)
+	// const handleToggle = (event) => {
+	// 	setDarkTheme(event.target.checked)
+	// }
+	// const storeUserSetPreference = (pref) => {
+	// 	localStorage.setItem('theme', pref)
+	// }
+	// const root = document.documentElement
+	// useEffect(() => {
+	// 	const initialColorValue = root.style.getPropertyValue(
+	// 		'--initial-color-mode'
+	// 	)
+	// 	setDarkTheme(initialColorValue === 'dark')
+	// }, [])
+	// useEffect(() => {
+	// 	if (darkTheme !== undefined) {
+	// 		if (darkTheme) {
+	// 			root.setAttribute('data-theme', 'dark')
+	// 			storeUserSetPreference('dark')
+	// 		} else {
+	// 			root.removeAttribute('data-theme')
+	// 			storeUserSetPreference('light')
+	// 		}
+	// 	}
+	// }, [darkTheme])
 
 	const pathName = usePathname()
 
@@ -210,8 +210,8 @@ lg:gap-x-[3rem]"
 							<input
 								className="block"
 								type="checkbox"
-								checked={darkTheme}
-								onChange={handleToggle}
+								// checked={darkTheme}
+								// onChange={handleToggle}
 							>
 								{/* <svg
 									// onClick={() => {

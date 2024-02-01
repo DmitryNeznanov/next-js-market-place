@@ -11,7 +11,7 @@
 		--color-light-gray: 120 120 120;
 		--color-error: 255 54 54 1;
 	}
-
+	/* 
 	@media (prefers-color-scheme: dark) {
 		:root {
 			--color-primary: 255 255 255;
@@ -21,7 +21,7 @@
 			--color-light-gray: 118 118 118;
 			--color-error: 255 54 54 1;
 		}
-	}
+	} */
 	[data-theme='dark'] {
 		--color-primary: 255 255 255;
 		--color-background: 6 6 6;

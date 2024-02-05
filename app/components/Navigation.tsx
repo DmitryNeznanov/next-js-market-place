@@ -47,8 +47,10 @@ export default function Navigation({
 								key={uuidv4()}
 							>
 								<Link
-									className={`font-DMSans text-xl capitalize transition-[hover] ${
-										pathName === link ? 'text-accent' : 'text-primary'
+									className={`font-DMSans text-xl capitalize ${
+										pathName === link
+											? 'text-accent'
+											: 'text-primary hover:text-gray-light transition-[hover]'
 									}`}
 									href={link}
 								>

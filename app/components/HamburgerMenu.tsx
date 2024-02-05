@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
 import { usePathname } from 'next/navigation'
+import DarkModeSwitcher from './DarkModeSwitcher'
 
 export default function HamburgerMenu({
 	toggleHamburgerMenu,
@@ -73,7 +74,7 @@ export default function HamburgerMenu({
 									className={`block font-DMSans text-xl capitalize ${
 										pathName === link
 											? 'text-accent'
-											: 'text-background hover:text-gray-400'
+											: 'text-background hover:text-gray-light transition'
 									}`}
 									href={link}
 									onClick={() => {
@@ -213,39 +214,7 @@ export default function HamburgerMenu({
 							</Link>
 						</li>
 						<li>
-							<button className="block">
-								<svg
-									className="group transition-[hover,_active] hover:scale-110 active:scale-95"
-									onClick={() => {
-										// toggleDarkMode()
-									}}
-									width="22"
-									height="22"
-									viewBox="0 0 22 22"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<g clipPath="url(#clip0_88_8)">
-										<path
-											className="stroke-background transition-[hover] group-hover:stroke-accent"
-											d="M18.6245 13.1156C17.2747 13.4941 15.8485 13.5065 14.4923 13.1516C13.1362 12.7966 11.8989 12.087 10.9077 11.0958C9.9164 10.1045 9.20684 8.86726 8.85187 7.51109C8.4969 6.15492 8.50931 4.7287 8.88781 3.37891C7.55704 3.74931 6.34653 4.46191 5.37687 5.44573C4.40721 6.42955 3.71223 7.65026 3.36116 8.98626C3.01009 10.3223 3.01518 11.7269 3.37593 13.0604C3.73667 14.3938 4.44048 15.6094 5.41725 16.5862C6.39402 17.563 7.60966 18.2668 8.94308 18.6275C10.2765 18.9883 11.6812 18.9933 13.0172 18.6423C14.3532 18.2912 15.5739 17.5962 16.5577 16.6266C17.5415 15.6569 18.2541 14.4464 18.6245 13.1156V13.1156Z"
-											stroke="black"
-											strokeWidth="1.3125"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</g>
-									<defs>
-										<clipPath id="clip0_88_8">
-											<rect
-												width="22"
-												height="22"
-												fill="white"
-											/>
-										</clipPath>
-									</defs>
-								</svg>
-							</button>
+							<DarkModeSwitcher />
 						</li>
 					</ul>
 				</div>

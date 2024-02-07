@@ -3,7 +3,7 @@ import Image from 'next/image'
 import salva from '@/public/salva.png'
 export default function About() {
 	return (
-		<>
+		<section className="mx-auto max-w-[57rem]">
 			<section>
 				<h2 className="heading-2">About me</h2>
 				<p className="text-main mt-[2.2rem]">
@@ -76,6 +76,6 @@ export default function About() {
 					Conarct Me
 				</a>
 			</section>
-		</>
+		</section>
 	)
 }

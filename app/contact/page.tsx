@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from 'uuid'
+
 export default function Contact() {
 	return (
-		<section className="max-w-[26.875rem] mx-auto flex flex-col md:max-w-none md:w-auto md:mx-0 md:flex-row md:gap-x-[6.4rem]">
+		<section className="max-w-[26.875rem] md:max-w-[57rem] mx-auto flex flex-col md:flex-row md:gap-x-[6.4rem]">
 			<article className="max-w-[23.563rem]">
 				<h2 className="heading-2">Let’s contact me</h2>
 				<p className="mt-[1.5rem] text-main lg:mt-[3rem]">

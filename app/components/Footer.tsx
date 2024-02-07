@@ -1,46 +1,18 @@
 'use client'
+
+import BackToTopButton from './BackToTopButton'
+
 export default function Footer() {
 	return (
 		<footer className="bg-background">
+			<BackToTopButton />
 			<div className="container pb-[2.8rem] md:pb-[4rem] xl:pb-[5.8rem] flex flex-col items-center gap-y-[1.5rem] text-center relative">
-				<div className="hidden md:block absolute right-0 bottom-0 -mr-[.6rem] md:mb-[4rem] xl:mb-[5.8rem]">
-					<svg
-						className="hover:cursor-pointer"
-						id="test"
-						onClick={() => {
-							window.scrollTo(0, 0)
-						}}
-						width="40"
-						height="40"
-						viewBox="0 0 40 40"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<circle
-							className="stroke-primary fill-backbg-background"
-							cx="20"
-							cy="20"
-							r="19"
-							fill="#FBFBFB"
-							stroke="#060606"
-							strokeWidth="2"
-						/>
-						<path
-							className="fill-primary stroke-primary"
-							d="M15.1527 22.9216C15.0964 22.9718 15.0197 23 14.9398 23C14.8598 23 14.7831 22.9718 14.7268 22.9216L14.0909 22.3597C14.0329 22.3116 14 22.2444 14 22.1741C14 22.1038 14.0329 22.0367 14.0909 21.9886L19.6041 17.1166C19.6884 17.042 19.8027 17.0001 19.922 17L20.078 17C20.1973 17.0001 20.3116 17.042 20.3959 17.1166L25.9091 21.9886C25.9671 22.0367 26 22.1038 26 22.1741C26 22.2444 25.9671 22.3116 25.9091 22.3597L25.2732 22.9216C25.2169 22.9718 25.1402 23 25.0602 23C24.9803 23 24.9036 22.9718 24.8473 22.9216L20 18.6381L15.1527 22.9216Z"
-							fill="#060606"
-							stroke="#060606"
-							strokeWidth="0.5"
-						/>
-					</svg>
-				</div>
-
 				<p className="text-primary font-DMSans text-xl">
 					Brilliance, a creative portfolio theme
 				</p>
 				<p
 					className="text-gray-light text-base font-DMSans
-     md:mt-[.4rem]"
+     			md:mt-[.4rem]"
 				>
 					&copy; 2022.Brilliance, made by
 					<a

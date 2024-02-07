@@ -28,12 +28,10 @@ export default function RootLayout({
 			<body className={`${DMSans.variable} ${JosefinSans.variable}`}>
 				<Header />
 				<main className="container mt-[6.5rem] mb-[6.2rem] md:mt-[7rem] md:mb-[8rem] xl:mt-[8rem] xl:mb-[11.5rem] bg-background">
-					{/* lg:px-[16.5rem] */}
 					{children}
 				</main>
 				<Footer />
 			</body>
-			{/* fix container  */}
 		</html>
 	)
 }

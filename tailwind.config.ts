@@ -14,21 +14,6 @@ const config: Config = {
 				desktop: '1440px',
 			},
 			colors: {
-				// black: 'rgba(6, 6, 6, 1)',
-				// white: 'rgba(251, 251, 251, 1)',
-				// accent: {
-				// 	'400': 'rgba(255, 92, 209, 1)',
-				// 	DEFAULT: 'rgba(255, 0, 184, 1)',
-				// },
-				// gray: {
-				// 	'100': 'rgba(245, 245, 245, 1)',
-				// 	'200': 'rgba(225, 225, 225, 1)',
-				// 	DEFAULT: 'rgba(159, 159, 159, 1)',
-				// 	'600': 'rgba(118, 118, 118, 1)',
-				// 	'700': 'rgba(82, 82, 82, 1)',
-				// 	'800': 'rgba(37, 37, 37, 1)',
-				// },
-				// error: 'rgba(255, 54, 54, 1)',
 				primary: 'rgb(var(--color-primary) / <alpha-value>)',
 				background: 'rgb(var(--color-background) / <alpha-value>)',
 				accent: 'rgb(var(--color-accent) / <alpha-value>)',

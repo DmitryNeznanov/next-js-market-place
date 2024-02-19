@@ -19,6 +19,16 @@
 		--color-light-gray: 118 118 118;
 		--color-error: 255 54 54;
 	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--color-primary: 255 255 255;
+			--color-background: 6 6 6;
+			--color-accent: 255 92 209;
+			--color-gray: 77 77 77;
+			--color-light-gray: 118 118 118;
+			--color-error: 255 54 54;
+		}
+	}
 }
 
 @layer components {

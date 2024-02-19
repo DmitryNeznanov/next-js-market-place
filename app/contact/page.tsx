@@ -25,7 +25,7 @@ export default function Contact() {
 						>
 							{title}
 							<a
-								className="mt-[.125rem] text-main text-gray-light hover:underline"
+								className="w-max mt-[.125rem] text-main text-gray-light lowercase hover:underline"
 								href={link}
 							>
 								{address}

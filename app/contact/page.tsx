@@ -34,7 +34,7 @@ export default function Contact() {
 					))}
 				</address>
 			</article>
-			<form className="max-w-[26.875rem] w-full mt-[2.5rem] md:mt-[4.5rem]">
+			<form className="max-w-[26.875rem] w-full mt-[2.5rem] lg:mt-[4.5rem]">
 				<div className="flex flex-col gap-y-[2rem] lg:gap-y-[4rem]">
 					<input
 						className="input-primary"

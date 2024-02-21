@@ -6,7 +6,7 @@ export default function About() {
 		<section className="mx-auto max-w-[57rem]">
 			<section>
 				<h2 className="heading-2">About me</h2>
-				<p className="text-main mt-[2.2rem]">
+				<p className="mt-[2.2rem] text-base">
 					I do what i love. If you’re interested in my work and what I do
 					connect with me on the social networks.
 				</p>
@@ -34,7 +34,7 @@ export default function About() {
 						],
 					].map(([text]) => (
 						<p
-							className="text-main"
+							className="text-base"
 							key={uuidv4()}
 						>
 							{text}
@@ -44,7 +44,7 @@ export default function About() {
 			</section>
 			<section className="mt-[1.7rem] lg:mt-[3rem]">
 				<h3 className="heading-3">Features</h3>
-				<p className="mt-[2.44rem] text-main">
+				<p className="mt-[2.44rem] text-base">
 					We’ve packed Sheen full of powerful features to help showcase your
 					work:
 				</p>
@@ -65,7 +65,7 @@ export default function About() {
 							className="pl-[1.5rem] relative list-inside before:content-[url('../public/shapes/dot.svg')] dark:before:content-[url('../public/shapes/dot-dark.svg')] before:w-1 before:h-1 before:-ml-[.7rem] before:-m-1 before:absolute"
 							key={uuidv4()}
 						>
-							<p className="text-main">{text}</p>
+							<p className="text-base">{text}</p>
 						</li>
 					))}
 				</ul>

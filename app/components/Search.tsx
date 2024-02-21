@@ -51,7 +51,7 @@ export default function Search({ toggleSearch }: { toggleSearch: Function }) {
 					<form className="container flex justify-center">
 						<div className="max-w-[43.75rem] w-screen flex flex-row items-center justify-between border-b-[.0625rem] border-b-background">
 							<input
-								className="block w-full input-primary border-b-0 text-background placeholder:text-inherit"
+								className="block w-full input-primary border-b-0"
 								type="text"
 								placeholder="type to search"
 							/>

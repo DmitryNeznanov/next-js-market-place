@@ -8,6 +8,20 @@ const config: Config = {
 		'./app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	theme: {
+		fontSize: {
+			heading1: ['4.25rem', { fontWeight: '700', lineHeight: '4.25rem' }],
+			heading2: ['2rem', { fontWeight: '700', lineHeight: '2.2rem' }],
+			heading3: ['1.5rem', { fontWeight: '700', lineHeight: '1.5rem' }],
+			based: [
+				'1rem',
+				{
+					lineHeight: '1.5625rem',
+					fontWeight: '400',
+				},
+			],
+			small: ['.875rem', { fontWeight: '400' }],
+			large: ['1.25rem', { fontWeight: '400' }],
+		},
 		extend: {
 			screens: {
 				mobile: '320px',
@@ -27,20 +41,6 @@ const config: Config = {
 			fontFamily: {
 				josefinSans: ['var(--font-josefinSans)'],
 				DMSans: ['var(--font-DMSans)'],
-			},
-			fontSize: {
-				heading1: ['4.25rem', { fontWeight: '700', lineHeight: '4.25rem' }],
-				heading2: ['2rem', { fontWeight: '700', lineHeight: '2.2rem' }],
-				heading3: ['1.5rem', { fontWeight: '700', lineHeight: '1.5rem' }],
-				base: [
-					'1rem',
-					{
-						lineHeight: '1.5625rem',
-						fontWeight: '400',
-					},
-				],
-				md: ['.875rem', { fontWeight: '400' }],
-				xl: ['1.25rem', { fontWeight: '400' }],
 			},
 			listStyleImage: {
 				dot: "url('/public/shapes/dot.svg')",

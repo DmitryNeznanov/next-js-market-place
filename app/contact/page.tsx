@@ -5,7 +5,7 @@ export default function Contact() {
 		<section className="max-w-[26.875rem] md:max-w-[57rem] mx-auto flex flex-col md:flex-row md:gap-x-[6.4rem]">
 			<article className="max-w-[23.563rem]">
 				<h2 className="heading-2">Let’s contact me</h2>
-				<p className="mt-[1.5rem] text-main lg:mt-[3rem]">
+				<p className="mt-[1.5rem] text-base lg:mt-[3rem]">
 					Feel free to contact me if you have any questions or just want to say
 					Hello!
 				</p>
@@ -20,12 +20,12 @@ export default function Contact() {
 						],
 					].map(([title, address, link]) => (
 						<p
-							className="flex flex-col text-main uppercase not-italic"
+							className="flex flex-col text-base uppercase not-italic"
 							key={uuidv4()}
 						>
 							{title}
 							<a
-								className="w-max mt-[.125rem] text-main text-gray-light lowercase hover:underline"
+								className="w-max mt-[.125rem] text-base text-gray-light lowercase hover:underline"
 								href={link}
 							>
 								{address}
@@ -34,27 +34,34 @@ export default function Contact() {
 					))}
 				</address>
 			</article>
-			<form className="max-w-[26.875rem] w-full mt-[2.5rem] lg:mt-[4.5rem]">
+			<form
+				className="max-w-[26.875rem] w-full mt-[2.5rem] lg:mt-[4.5rem]"
+				method="post"
+			>
 				<div className="flex flex-col gap-y-[2rem] lg:gap-y-[4rem]">
 					<input
 						className="input-primary"
 						placeholder="Type Your Name"
 						type="text"
+						required
 					/>
 					<input
 						className="input-primary"
 						placeholder="Type Your E-mail Address"
 						type="email"
+						required
 					/>
 					<textarea
 						className="input-primary min-h-[6.25rem]"
 						placeholder="Type Your Message"
-						name=""
+						required
 					></textarea>
 				</div>
-				<button className="block mt-[1.2rem] lg:mt-[2.4rem] ml-auto w-min button-primary">
-					send
-				</button>
+				<input
+					className="block mt-[1.2rem] lg:mt-[2.4rem] ml-auto w-min button-primary"
+					type="submit"
+					value="Send"
+				/>
 			</form>
 		</section>
 	)

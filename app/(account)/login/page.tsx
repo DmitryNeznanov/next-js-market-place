@@ -1,8 +1,13 @@
 import Link from 'next/link'
+import { Metadata } from 'next'
+export const metadata: Metadata = {
+	title: 'Sheen | Login',
+	description: 'Login page',
+}
 
-export default function page() {
+export default function LoginPage() {
 	return (
-		<section className="max-w-[26.875rem] md:max-w-[57rem] mx-auto flex flex-col md:flex-row md:gap-x-[6.4rem]">
+		<>
 			<article className="flex flex-col max-w-[23.563rem]">
 				<h2 className="heading-2">Welcome back</h2>
 				<p className="mt-[.5rem] lg:mt-[1rem] text-xl">
@@ -52,6 +57,6 @@ export default function page() {
 					Forgot Password?
 				</Link>
 			</form>
-		</section>
+		</>
 	)
 }

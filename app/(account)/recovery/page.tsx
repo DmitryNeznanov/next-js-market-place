@@ -1,4 +1,9 @@
+import { Metadata } from 'next'
+export const metadata: Metadata = {
+	title: 'Sheen | Recovery',
+	description: 'Recovery page',
+}
+
 export default function page() {
-	// ! Fix fonts variables!
 	return <div>page</div>
 }

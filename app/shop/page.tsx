@@ -4,6 +4,12 @@ import pl1 from '@/public/pl-1.png'
 import pl2 from '@/public/pl-2.png'
 import pl3 from '@/public/pl-3.png'
 import pl4 from '@/public/pl-4.png'
+
+import { Metadata } from 'next'
+export const metadata: Metadata = {
+	title: 'Sheen | Shop',
+	description: 'Shop page',
+}
 export default function page() {
 	return (
 		<section>

@@ -1,6 +1,12 @@
 import { v4 as uuidv4 } from 'uuid'
 import Image from 'next/image'
 import salva from '@/public/salva.png'
+
+import { Metadata } from 'next'
+export const metadata: Metadata = {
+	title: 'Sheen | About',
+	description: 'About page',
+}
 export default function About() {
 	return (
 		<section className="mx-auto max-w-[57rem]">

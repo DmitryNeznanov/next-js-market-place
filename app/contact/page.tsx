@@ -1,5 +1,11 @@
 import { v4 as uuidv4 } from 'uuid'
 
+import { Metadata } from 'next'
+export const metadata: Metadata = {
+	title: 'Sheen | Contact',
+	description: 'Contact page',
+}
+
 export default function Contact() {
 	return (
 		<section className="max-w-[26.875rem] md:max-w-[57rem] mx-auto flex flex-col md:flex-row md:gap-x-[6.4rem]">

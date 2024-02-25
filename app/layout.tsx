@@ -1,8 +1,14 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { DM_Sans, Josefin_Sans } from 'next/font/google'
 import './globals.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const DMSans = DM_Sans({ subsets: ['latin'], variable: '--font-DMSans' })
+const JosefinSans = Josefin_Sans({
+	subsets: ['latin'],
+	variable: '--font-josefinSans',
+})
 
 export const metadata: Metadata = {
 	title: 'Sheen',
@@ -15,8 +21,17 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en">
-			<body className={inter.className}>{children}</body>
+		<html
+			lang="en"
+			className="bg-background"
+		>
+			<body className={`${DMSans.variable} ${JosefinSans.variable}`}>
+				<Header />
+				<main className="container mt-[6.5rem] mb-[6.2rem] md:mt-[7rem] md:mb-[8rem] xl:mt-[8rem] xl:mb-[11.5rem] bg-background">
+					{children}
+				</main>
+				<Footer />
+			</body>
 		</html>
 	)
 }

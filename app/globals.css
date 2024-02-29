@@ -3,66 +3,66 @@
 @tailwind utilities;
 
 @layer base {
-	:root {
-		--color-primary: 6 6 6;
-		--color-background: 255 255 255;
-		--color-accent: 255 0 184;
-		--color-gray: 225 225 225;
-		--color-light-gray: 120 120 120;
-		--color-error: 255 54 54;
-	}
-	[data-theme='dark'] {
-		--color-primary: 255 255 255;
-		--color-background: 6 6 6;
-		--color-accent: 255 92 209;
-		--color-gray: 77 77 77;
-		--color-light-gray: 118 118 118;
-		--color-error: 255 54 54;
-	}
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--color-primary: 255 255 255;
-			--color-background: 6 6 6;
-			--color-accent: 255 92 209;
-			--color-gray: 77 77 77;
-			--color-light-gray: 118 118 118;
-			--color-error: 255 54 54;
-		}
-	}
+  :root {
+    --color-primary: 6 6 6;
+    --color-background: 255 255 255;
+    --color-accent: 255 0 184;
+    --color-gray: 225 225 225;
+    --color-light-gray: 120 120 120;
+    --color-error: 255 54 54;
+  }
+  [data-theme="dark"] {
+    --color-primary: 255 255 255;
+    --color-background: 6 6 6;
+    --color-accent: 255 92 209;
+    --color-gray: 77 77 77;
+    --color-light-gray: 118 118 118;
+    --color-error: 255 54 54;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-primary: 255 255 255;
+      --color-background: 6 6 6;
+      --color-accent: 255 92 209;
+      --color-gray: 77 77 77;
+      --color-light-gray: 118 118 118;
+      --color-error: 255 54 54;
+    }
+  }
 }
 
 @layer components {
-	.text-sm {
-		@apply text-primary font-DMSans text-small;
-	}
-	.text-base {
-		@apply text-primary font-DMSans text-based;
-	}
-	.text-xl {
-		@apply text-primary font-DMSans text-large;
-	}
-	.heading-1 {
-		@apply text-primary font-josefinSans text-heading3;
-	}
-	.heading-2 {
-		@apply text-primary font-josefinSans text-heading2;
-	}
-	.heading-3 {
-		@apply text-primary font-josefinSans text-heading3;
-	}
-	.button-primary {
-		@apply py-2 px-6 border border-primary bg-transparent text-primary font-DMSans text-base capitalize hover:bg-accent hover:border-accent hover:cursor-pointer;
-	}
-	.input-primary {
-		@apply py-3 border-b-[.0625rem] border-b-gray-light bg-transparent text-gray-light font-DMSans text-small capitalize placeholder:text-inherit focus:outline-none focus:placeholder:text-transparent;
-	}
-	.accent-underline {
-		@apply underline decoration-accent underline-offset-8 hover:no-underline;
-	}
-	.fill-svg {
-		@apply fill-primary transition-[hover] group-hover:fill-accent;
-	}
-	.stroke-svg {
-		@apply stroke-primary transition-[hover] group-hover:stroke-accent;
-	}
+  .text-sm {
+    @apply text-primary font-DMSans text-small;
+  }
+  .text-base {
+    @apply text-primary font-DMSans text-based;
+  }
+  .text-xl {
+    @apply text-primary font-DMSans text-large;
+  }
+  .heading-1 {
+    @apply text-primary font-josefinSans text-heading3;
+  }
+  .heading-2 {
+    @apply text-primary font-josefinSans text-heading2;
+  }
+  .heading-3 {
+    @apply text-primary font-josefinSans text-heading3;
+  }
+  .button-primary {
+    @apply py-2 px-6 border border-primary bg-transparent text-primary font-DMSans text-base capitalize hover:bg-accent hover:border-accent hover:cursor-pointer;
+  }
+  .input-primary {
+    @apply py-3 border-b-[.0625rem] border-b-gray-light bg-transparent text-gray-light font-DMSans text-small capitalize placeholder:text-inherit focus:outline-none focus:placeholder:text-transparent;
+  }
+  .accent-underline {
+    @apply underline decoration-accent underline-offset-8 hover:no-underline;
+  }
+  .fill-svg {
+    @apply fill-primary transition-[hover] group-hover:fill-accent;
+  }
+  .stroke-svg {
+    @apply stroke-primary transition-[hover] group-hover:stroke-accent;
+  }
 }

@@ -1,11 +1,5 @@
-import Link from "next/link";
-import { Metadata } from "next";
-export const metadata: Metadata = {
-  title: "Sheen | Login",
-  description: "Login page",
-};
-
-export default function LoginPage() {
+import Link from "next/link"
+export default async function LoginPage() {
   return (
     <>
       <article className="flex flex-col max-w-[23.563rem]">
@@ -23,10 +17,7 @@ export default function LoginPage() {
           </Link>
         </p>
       </article>
-      <form
-        className="max-w-[26.875rem] w-full mt-[2.5rem] md:mt-[2.2rem]"
-        method="get"
-      >
+      <form className="max-w-[26.875rem] w-full mt-[2.5rem] md:mt-[2.2rem]">
         <div className="flex flex-col gap-y-[2rem] lg:gap-y-[4rem]">
           <input
             className="input-primary"
@@ -58,5 +49,5 @@ export default function LoginPage() {
         </Link>
       </form>
     </>
-  );
+  )
 }

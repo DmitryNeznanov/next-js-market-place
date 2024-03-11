@@ -4,13 +4,13 @@ export const metadata: Metadata = {
   description: "Shop page",
 }
 
-const getItems = async () => {
+async function getItems() {
   try {
     const res = await fetch("http://localhost:3000/api/Item", {
       cache: "no-store",
     })
     if (!res.ok) {
-      throw new Error("Failed to fetch topics")
+      throw new Error("Failed to fetch items")
     }
 
     return res.json()
@@ -19,7 +19,22 @@ const getItems = async () => {
   }
 }
 
-export default function ShopPage() {
-  const data = getItems()
-  return <section></section>
+export default async function ShopPage() {
+  const rawData = await getItems()
+  const data = rawData.items
+
+  return (
+    <section>
+      {data.map((item: any) => {
+        return (
+          <h2
+            key={item._id}
+            className="text-base"
+          >
+            {item.item}
+          </h2>
+        )
+      })}
+    </section>
+  )
 }

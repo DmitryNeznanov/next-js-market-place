@@ -4,7 +4,6 @@ import Item from "../../models/Item"
 export async function GET() {
   try {
     const items = await Item.find()
-    console.log(items)
     return NextResponse.json({ items }, { status: 201 })
   } catch (err) {
     console.log(err)

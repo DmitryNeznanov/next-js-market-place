@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Image from "next/image"
 export const metadata: Metadata = {
   title: "Sheen | Shop",
   description: "Shop page",
@@ -25,16 +26,24 @@ export default async function ShopPage() {
 
   return (
     <section>
-      {data.map((item: any) => {
-        return (
-          <h2
-            key={item._id}
-            className="text-base"
-          >
-            {item.item}
-          </h2>
-        )
-      })}
+      <h2>Shop</h2>
+      <section className="mt-[1.875rem] flex flex-row flex-wrap gap-y-[4.5rem] gap-x-[3.125rem] ">
+        {data.map((item: any) => {
+          return (
+            <article key={item._id}>
+              <Image
+                className="w-full"
+                src={item.img.src}
+                alt={item.img.alt}
+                width={item.img.width}
+                height={item.img.height}
+              ></Image>
+              <h3 className="mt-[1.25rem] lg:mt-[1.5rem]">{item.item}</h3>
+              <p className="mt-[1rem] lg:mt-[1.25rem]">${item.price}</p>
+            </article>
+          )
+        })}
+      </section>
     </section>
   )
 }

@@ -3,7 +3,7 @@ export default async function LoginPage() {
   return (
     <>
       <article className="flex flex-col max-w-[23.563rem]">
-        <h2 className="heading-2">Welcome back</h2>
+        <h2 className="">Welcome back</h2>
         <p className="mt-[.5rem] lg:mt-[1rem] text-xl">
           Enter your email and password to sign in to the website.
         </p>

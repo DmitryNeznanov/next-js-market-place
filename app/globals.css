@@ -3,6 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  h1 {
+    @apply heading-1;
+  }
+  h2 {
+    @apply heading-2;
+  }
+  h3 {
+    @apply heading-3;
+  }
+  p {
+    @apply text-base;
+  }
+
   :root {
     --color-primary: 6 6 6;
     --color-background: 255 255 255;

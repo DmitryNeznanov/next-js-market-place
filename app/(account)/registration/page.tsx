@@ -1,19 +1,19 @@
-import { Metadata } from "next";
-import Link from "next/link";
+import { Metadata } from "next"
+import Link from "next/link"
 export const metadata: Metadata = {
   title: "Sheen | Registration",
   description: "Registration page",
-};
+}
 
 export default function RegistrationPage() {
   return (
     <>
       <article className="flex flex-col max-w-[23.563rem]">
-        <h2 className="heading-2">Register an Account</h2>
+        <h2 className="">Register an Account</h2>
         <p className="mt-[.5rem] lg:mt-[1rem] text-xl">
           Welcome to the Brilliance
         </p>
-        <p className="mt-[.75rem] lg:mt-[1.5rem] text-base">
+        <p className="mt-[.75rem] lg:mt-[1.5rem] ">
           Already have an account?{" "}
           <Link
             className="accent-underline"
@@ -64,5 +64,5 @@ export default function RegistrationPage() {
         </p>
       </form>
     </>
-  );
+  )
 }

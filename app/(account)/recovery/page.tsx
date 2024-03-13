@@ -1,15 +1,15 @@
-import { Metadata } from "next";
+import { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Sheen | Recovery",
   description: "Recovery page",
-};
+}
 
 export default function page() {
   return (
     <>
       <article className="flex flex-col max-w-[23.563rem]">
-        <h2 className="heading-2 capitalize">Lost Your Password?</h2>
-        <p className="mt-[.5rem] lg:mt-[1rem] text-base">
+        <h2 className=" capitalize">Lost Your Password?</h2>
+        <p className="mt-[.5rem] lg:mt-[1rem] ">
           Lost your password? Please enter your email address. You will receive
           a link to create a new password via email.
         </p>
@@ -28,5 +28,5 @@ export default function page() {
         />
       </form>
     </>
-  );
+  )
 }

@@ -25,12 +25,15 @@ export default async function ShopPage() {
   const data = rawData.items
 
   return (
-    <section>
+    <section className="">
       <h2>Shop</h2>
-      <section className="mt-[1.875rem] flex flex-row flex-wrap gap-y-[4.5rem] gap-x-[3.125rem] ">
+      <section className="mt-[1.875rem] columns-1 md:columns-2 lg:columns-3 gap-x-[3.125rem]">
         {data.map((item: any) => {
           return (
-            <article key={item._id}>
+            <article
+              className="max-w-[999999rem] w-full inline-block"
+              key={item._id}
+            >
               <Image
                 className="w-full"
                 src={item.img.src}

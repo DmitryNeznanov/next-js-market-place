@@ -68,7 +68,7 @@ export default function About() {
             ],
           ].map(([text]) => (
             <li
-              className="pl-[1.5rem] relative list-inside before:content-[url('../public/shapes/dot.svg')] dark:before:content-[url('../public/shapes/dot-dark.svg')] before:w-1 before:h-1 before:-ml-[.7rem] before:-m-1 before:absolute"
+              className="li-dot"
               key={uuidv4()}
             >
               <p className="">{text}</p>

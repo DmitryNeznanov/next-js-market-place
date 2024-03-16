@@ -78,4 +78,10 @@
   .stroke-svg {
     @apply stroke-primary transition-[hover] group-hover:stroke-accent;
   }
+  .li-dot {
+    @apply pl-[1.5rem] relative list-inside before:content-[url('../public/shapes/dot.svg')] dark:before:content-[url('../public/shapes/dot-dark.svg')] before:w-1 before:h-1 before:-ml-[.7rem] before:-m-1 before:absolute;
+  }
+  .li-ol {
+    @apply pl-[.7rem] marker:text-primary list-inside;
+  }
 }

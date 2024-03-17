@@ -21,7 +21,7 @@ export default async function ShopPage() {
           {data.map((item: any) => {
             return (
               <article
-                className="max-w-[999999rem] w-full inline-block"
+                className="mb-[3.125rem] max-w-[999999rem] w-full inline-block"
                 key={item._id}
               >
                 <Image

@@ -2,6 +2,7 @@
 import img3 from "@/public/img-3.png"
 import img2 from "@/public/img-2.png"
 import img5 from "@/public/img-5.png"
+import carousel1 from "@/public/caruosel.png"
 import Image from "next/image"
 import { useState } from "react"
 
@@ -10,26 +11,40 @@ export default function Carousel() {
 
   function handleClick(i: any) {
     setSlide(i)
+
+    const carousel = document.getElementById("carousel") as HTMLDivElement
+    carousel?.scroll({
+      top: 0,
+      left:
+        slide === i
+          ? undefined
+          : slide > i
+          ? -carousel.offsetWidth
+          : carousel.offsetWidth,
+      behavior: "smooth",
+    })
   }
   const data = [
-    [img2, "img1"],
-    [img5, "img2"],
-    [img3, "img3"],
+    [carousel1, "img1"],
+    [img2, "img2"],
+    [img5, "img3"],
   ]
   return (
     <section>
-      <div className={`relative h-[500px] w-full overflow-hidden $`}>
-        <section className="flex absolute">
+      <div id="carousel">
+        <section>
           {data.map(([src, alt]: any, i) => {
             return (
-              <>
+              <div
+                className={`${slide === i ? "block" : "hidden"}`}
+                key={i}
+              >
                 <Image
-                  className="h-[500px] w-full"
+                  className="max-h-[500px] w-full"
                   src={src}
                   alt={alt}
-                  key={i}
                 ></Image>
-              </>
+              </div>
             )
           })}
         </section>
@@ -44,6 +59,7 @@ export default function Carousel() {
               onClick={() => {
                 handleClick(i)
               }}
+              id="controls"
               key={i}
             ></button>
           )

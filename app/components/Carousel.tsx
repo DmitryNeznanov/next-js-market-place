@@ -1,5 +1,4 @@
 "use client"
-import img3 from "@/public/img-3.png"
 import img2 from "@/public/img-2.png"
 import img5 from "@/public/img-5.png"
 import carousel1 from "@/public/caruosel.png"
@@ -11,19 +10,8 @@ export default function Carousel() {
 
   function handleClick(i: any) {
     setSlide(i)
-
-    const carousel = document.getElementById("carousel") as HTMLDivElement
-    carousel?.scroll({
-      top: 0,
-      left:
-        slide === i
-          ? undefined
-          : slide > i
-          ? -carousel.offsetWidth
-          : carousel.offsetWidth,
-      behavior: "smooth",
-    })
   }
+
   const data = [
     [carousel1, "img1"],
     [img2, "img2"],
@@ -36,11 +24,13 @@ export default function Carousel() {
           {data.map(([src, alt]: any, i) => {
             return (
               <div
-                className={`${slide === i ? "block" : "hidden"}`}
+                className={`transition-[opacity] duration-1000 ${
+                  slide === i ? "opacity-100" : "h-[0px] w-[0px] opacity-0"
+                }`}
                 key={i}
               >
                 <Image
-                  className="max-h-[500px] w-full"
+                  className="max-h-[7.259rem] sm:max-h-[20rem] lg:max-h-[31.25rem] h-full w-full"
                   src={src}
                   alt={alt}
                 ></Image>
@@ -59,7 +49,6 @@ export default function Carousel() {
               onClick={() => {
                 handleClick(i)
               }}
-              id="controls"
               key={i}
             ></button>
           )

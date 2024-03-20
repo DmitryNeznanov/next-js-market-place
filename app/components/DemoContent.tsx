@@ -64,7 +64,7 @@ export default function DemoContent() {
               help break up the layout and draw attention to key parts of your
               content:
               <q
-                className="p-[1.1rem] mt-[2.3rem] lg:mt-[1.5rem] border-l-[3px] border-l-primary text-base text-gray-light"
+                className="p-[1.1rem] mt-[2.3rem] lg:mt-[1.5rem] border-l-[3px] border-l-primary text-base text-gray-light italic "
                 cite="https://google.com"
               >
                 The longer I live, the more I realize that I am never wrong
@@ -118,6 +118,24 @@ export default function DemoContent() {
         <div className="mt-[3rem]">
           <Carousel />
         </div>
+      </section>
+      <section className="mt-[3rem] lg:mt-[6.725rem]">
+        <article className="lg:mx-[5rem] desktop:mx-[10rem]">
+          <h2>What about videos?</h2>
+          <p className="mt-[1.5rem] lg:mt-[2.5rem]">
+            Videos are an awesome way to show off your work in a more engaging
+            and personal way, and we’ve made sure they work great on our themes.
+            Just paste an embed code from YouTube or Vimeo, and the theme makes
+            sure it displays perfectly:
+          </p>
+        </article>
+        <video
+          className="mt-[3rem] w-full max-h-[7.259rem] sm:max-h-[20rem] lg:max-h-[31.25rem]"
+          src="/video/video.mp4"
+          poster="/poster.png"
+          controls
+          muted
+        ></video>
       </section>
     </section>
   )

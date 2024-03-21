@@ -11,5 +11,5 @@ const itemSchema = new Schema({
   categories: [String],
 })
 
-const Item = mongoose.models.Items || mongoose.model("Items", itemSchema)
+const Item = mongoose.models.items || mongoose.model("items", itemSchema)
 export default Item

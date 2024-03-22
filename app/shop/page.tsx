@@ -1,42 +1,44 @@
-import { v4 as uuidv4 } from 'uuid'
-import Image from 'next/image'
-import pl1 from '@/public/pl-1.png'
-import pl2 from '@/public/pl-2.png'
-import pl3 from '@/public/pl-3.png'
-import pl4 from '@/public/pl-4.png'
-
-import { Metadata } from 'next'
+import getItems from "@/lib/getItems"
+import { Metadata } from "next"
+import Image from "next/image"
+import { Suspense } from "react"
+import Filters from "../components/Filters"
 export const metadata: Metadata = {
-	title: 'Sheen | Shop',
-	description: 'Shop page',
+  title: "Sheen | Shop",
+  description: "Shop page",
 }
-export default function page() {
-	return (
-		<section>
-			<h2 className="heading-2 capitalize">shop</h2>
-			<section className="flex flex-col md:flex-row md:flex-wrap md:justify-between">
-				{[
-					['andrea', '$84', pl1],
-					['Exploring a day', '$84', pl2],
-					['conceptualize thesaurus', '$87.5', pl3],
-					['conceptualize thesaurus', '$125', pl4],
-				].map(([item, price, image]) => (
-					<article
-						className=" flex flex-col"
-						key={uuidv4()}
-					>
-						<Image
-							className="max-w-[36.5rem] max-h-[36.5rem]"
-							src={image}
-							alt="item"
-						></Image>
-						{/* @ts-ignore */}
-						<h3 className="heading-3 lowercase">{item}</h3>
-						{/* @ts-ignore */}
-						<p className="text-main">{price}</p>
-					</article>
-				))}
-			</section>
-		</section>
-	)
+
+export default async function ShopPage() {
+  const rawData = await getItems()
+
+  const data = rawData.items
+
+  return (
+    <section className="">
+      <h2>Shop</h2>
+      <Filters />
+      <section className="mt-[1.875rem] columns-1 md:columns-2 lg:columns-3 gap-x-[3.125rem]">
+        <Suspense fallback={<h2>Items is loading!</h2>}>
+          {data.map((item: any) => {
+            return (
+              <article
+                className="mb-[3.125rem] max-w-[999999rem] w-full inline-block"
+                key={item._id}
+              >
+                <Image
+                  className="w-full"
+                  src={item.img.src}
+                  alt={item.img.alt}
+                  width={item.img.width}
+                  height={item.img.height}
+                ></Image>
+                <h3 className="mt-[1.25rem] lg:mt-[1.5rem]">{item.item}</h3>
+                <p className="mt-[1rem] lg:mt-[1.25rem]">${item.price}</p>
+              </article>
+            )
+          })}
+        </Suspense>
+      </section>
+    </section>
+  )
 }

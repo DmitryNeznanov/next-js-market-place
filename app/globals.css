@@ -55,7 +55,7 @@
     @apply text-primary font-DMSans text-large;
   }
   .heading-1 {
-    @apply text-primary font-josefinSans text-heading3;
+    @apply text-primary font-josefinSans text-heading1;
   }
   .heading-2 {
     @apply text-primary font-josefinSans text-heading2;
@@ -70,7 +70,7 @@
     @apply py-3 border-b-[.0625rem] border-b-gray-light bg-transparent text-gray-light font-DMSans text-small placeholder:text-inherit focus:outline-none focus:placeholder:text-transparent;
   }
   .accent-underline {
-    @apply underline decoration-accent underline-offset-8 hover:no-underline;
+    @apply underline decoration-accent underline-offset-8;
   }
   .fill-svg {
     @apply fill-primary transition-[hover] group-hover:fill-accent;

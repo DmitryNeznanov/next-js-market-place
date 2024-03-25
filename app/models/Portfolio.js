@@ -2,10 +2,9 @@ import mongoose, { Schema } from "mongoose"
 
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.Promise = global.Promise
-
 const itemSchema = new Schema({
   name: String,
-  categories: ["String"],
+  categories: [String],
   img: {
     src: String,
     width: Number,

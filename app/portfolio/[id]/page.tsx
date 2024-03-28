@@ -4,11 +4,9 @@ import Portfolio from "@/app/models/Portfolio"
 import Image from "next/image"
 import { Types } from "mongoose"
 import { Suspense } from "react"
-
 export async function generateStaticParams() {
   const rawData = await getPortfolio()
   const data: PortfolioItem[] = rawData.items
-
   return data.map((item: PortfolioItem) => {
     id: item._id
   })

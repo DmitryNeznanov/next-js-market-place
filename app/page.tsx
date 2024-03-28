@@ -4,14 +4,28 @@ import Image from "next/image"
 import { Suspense } from "react"
 import Filters from "./components/Filters"
 import Link from "next/link"
-
+import Portfolio from "@/app/models/Portfolio"
 export const metadata: Metadata = {
   title: "Sheen | Home",
   description: "Home page",
 }
-export default async function HomePage() {
+
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
+  const filterQuery = searchParams.filters
+
   const rawData = await getPortfolio()
   const data: PortfolioItem[] = rawData.items
+
+  const filteredData = await Portfolio.find({ categories: [`${filterQuery}`] })
+
+  const itemsCategories = ["photo", "photography"]
+
+  const actualData = filterQuery === undefined ? data : filteredData
+
   return (
     <section>
       <article className="lg:text-center">
@@ -21,11 +35,11 @@ export default async function HomePage() {
         </p>
       </article>
       <div className="mt-[4.875rem] lg:mt-[8.875rem]">
-        <Filters />
+        <Filters categories={itemsCategories} />
       </div>
       <section className="columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
         <Suspense fallback={<h2 className="text-[4rem]">Items is loading!</h2>}>
-          {data.map((item: PortfolioItem) => {
+          {actualData.map((item: PortfolioItem) => {
             return (
               <article
                 className="mb-[3.125rem] max-w-[999999rem] w-full inline-block"
@@ -46,7 +60,7 @@ export default async function HomePage() {
                     {item.name}
                   </h3>
                 </Link>
-                <p className="mt-[.75rem] italic text-gray-light">
+                <p className="mt-[.75rem] italic text-gray-light capitalize">
                   {item.categories}
                 </p>
               </article>

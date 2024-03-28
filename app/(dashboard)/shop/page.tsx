@@ -12,11 +12,18 @@ export default async function ShopPage() {
   const rawData = await getItems()
 
   const data = rawData.items
-
+  const itemsCategories = [
+    "technology",
+    "interface Design",
+    "art",
+    "modern",
+    "product",
+    "feature",
+  ]
   return (
     <section className="">
       <h2>Shop</h2>
-      <Filters />
+      <Filters categories={itemsCategories} />
       <section className="columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
         <Suspense fallback={<h2>Items is loading!</h2>}>
           {data.map((item: any) => {

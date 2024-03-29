@@ -37,12 +37,12 @@ export default async function HomePage({
       <div className="mt-[4.875rem] lg:mt-[8.875rem]">
         <Filters categories={itemsCategories} />
       </div>
-      <section className="columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
+      <section className="mt-[2rem] lg:mt-[4rem] columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem] ">
         <Suspense fallback={<h2 className="text-[4rem]">Items is loading!</h2>}>
           {actualData.map((item: PortfolioItem) => {
             return (
               <article
-                className="mb-[3.125rem] max-w-[999999rem] w-full inline-block"
+                className="mb-[3.125rem] max-w-full w-full inline-block"
                 key={item._id}
               >
                 <Link

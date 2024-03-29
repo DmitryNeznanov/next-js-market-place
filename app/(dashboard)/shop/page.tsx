@@ -14,7 +14,7 @@ export default async function ShopPage() {
   const data = rawData.items
   const itemsCategories = [
     "technology",
-    "interface Design",
+    "interface design",
     "art",
     "modern",
     "product",
@@ -24,12 +24,12 @@ export default async function ShopPage() {
     <section className="">
       <h2>Shop</h2>
       <Filters categories={itemsCategories} />
-      <section className="columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
+      <section className="mt-[2rem] lg:mt-[4rem] columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
         <Suspense fallback={<h2>Items is loading!</h2>}>
           {data.map((item: any) => {
             return (
               <article
-                className="mb-[3.125rem] max-w-[999999rem] w-full inline-block"
+                className="mb-[3.125rem] max-w-full w-full inline-block"
                 key={item._id}
               >
                 <Image

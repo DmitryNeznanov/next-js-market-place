@@ -22,7 +22,7 @@ export default async function HomePage({
 
   const filteredData = await Portfolio.find({ categories: [`${filterQuery}`] })
 
-  const itemsCategories = ["photo", "photography"]
+  const itemCategories = ["photo", "photography"]
 
   const actualData = filterQuery === undefined ? data : filteredData
 
@@ -35,7 +35,7 @@ export default async function HomePage({
         </p>
       </article>
       <div className="mt-[4.875rem] lg:mt-[8.875rem]">
-        <Filters categories={itemsCategories} />
+        <Filters categories={itemCategories} />
       </div>
       <section className="mt-[2rem] lg:mt-[4rem] columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem] ">
         <Suspense fallback={<h2 className="text-[4rem]">Items is loading!</h2>}>

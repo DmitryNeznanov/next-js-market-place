@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise
 const postSchema = new Schema({
   post: String,
   author: String,
-  date: String,
+  date: Date,
   categories: [String],
   img: {
     src: String,

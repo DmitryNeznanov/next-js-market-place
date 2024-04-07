@@ -59,10 +59,10 @@ export default async function HomePage({
                   <h3 className="mt-[1.5rem] group-hover:accent-underline">
                     {item.name}
                   </h3>
+                  <p className="mt-[.75rem] italic text-gray-light capitalize">
+                    {item.categories}
+                  </p>
                 </Link>
-                <p className="mt-[.75rem] italic text-gray-light capitalize">
-                  {item.categories}
-                </p>
               </article>
             )
           })}

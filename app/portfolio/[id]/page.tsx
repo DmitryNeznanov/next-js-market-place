@@ -19,7 +19,7 @@ export async function generateMetadata({
   const data = await Portfolio.findById(params.id)
   return {
     title: `Sheen | ${data.name}'s page`,
-    description: `This page has ${data._id} ID, and about ${data.name} work`,
+    description: `This page has ${data._id} ID, and about ${data.name}'s work`,
   }
 }
 export default async function PortfolioPostPage({
@@ -30,7 +30,7 @@ export default async function PortfolioPostPage({
   const data = await Portfolio.findById(params.id)
 
   return (
-    <>
+    <section>
       <Suspense fallback={<h2 className="text-[4rem]">Item is loading!</h2>}>
         <article className="lg:mx-[5rem] desktop:mx-[10rem]">
           <h2 className="capitalize">{data.name}</h2>
@@ -49,6 +49,6 @@ export default async function PortfolioPostPage({
       <div className="mt-[2.5rem] lg:mt-[4rem]">
         <DemoContent />
       </div>
-    </>
+    </section>
   )
 }

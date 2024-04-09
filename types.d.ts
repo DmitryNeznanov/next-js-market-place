@@ -11,7 +11,7 @@ interface PortfolioItem {
 }
 interface Post {
   _id: Types.ObjectId
-  post: string
+  title: string
   author: string
   date: Types.Date
   categories: string[]

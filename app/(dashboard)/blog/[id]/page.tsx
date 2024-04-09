@@ -17,10 +17,10 @@ export async function generateMetadata({
 }: {
   params: { id: Types.ObjectId }
 }) {
-  const data = await Post.findById(params.id)
+  const data = (await Post.findById(params.id)) as Post
   return {
-    title: `Sheen | ${data.post}`,
-    description: `This page has ${data._id} ID, and about ${data.name}'s post`,
+    title: `Sheen | ${data.title}`,
+    description: `This page has ${data._id} ID`,
   }
 }
 export default async function PostPage({
@@ -28,21 +28,25 @@ export default async function PostPage({
 }: {
   params: { id: Types.ObjectId }
 }) {
-  const data = await Post.findById(params.id)
-
+  const data = (await Post.findById(params.id)) as Post
+  // ! fix title / api for find by id Post
   return (
     <section>
       <Suspense fallback={<h2 className="text-[4rem]">Post is loading!</h2>}>
         <article className="lg:mx-[5rem] desktop:mx-[10rem]">
-          <h2 className="capitalize">{data.post}</h2>
-
+          <h2 className="capitalize">{data.title}</h2>
           <div className="mt-[1.5rem] flex flex-row gap-x-[1.4rem] uppercase">
             <p>
-              <time dateTime="">{data.date}</time>
+              <time dateTime={`${data.date}`}>
+                {new Date(data.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
             </p>
             <div className="text-gray-light">/</div>
-            <div className="text-gray-light">/</div>
-            <p>{data.categories}</p>
+            <p className="accent-underline">{data.categories}</p>
           </div>
           <Image
             className="mt-[1.5rem] lg:mt-[3rem] w-full max-h-[10rem] sm:max-h-[20.25rem] desktop:max-h-[31.25rem]"

@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose"
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.Promise = global.Promise
 const postSchema = new Schema({
-  post: String,
+  title: String,
   author: String,
   date: Date,
   categories: [String],

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 export default async function BlogPage() {
   const rawData = await getPosts()
   const data = rawData.items
+
   return (
     <section>
       <h2>Blog</h2>
@@ -33,10 +34,16 @@ export default async function BlogPage() {
                     height={post.img.height}
                     alt={post.img.alt}
                   ></Image>
-                  <h3 className="mt-[1.5rem]">{post.post}</h3>
+                  <h3 className="mt-[1.5rem]">{post.title}</h3>
                   <div className="mt-[1.2rem] flex flex-row gap-x-[1.4rem] uppercase">
                     <p>
-                      <time dateTime="">{post.date}</time>
+                      <time dateTime={`${post.date}`}>
+                        {new Date(post.date).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </time>
                     </p>
                     <div className="text-gray-light">/</div>
                     <p className="accent-underline group-hover:no-underline">

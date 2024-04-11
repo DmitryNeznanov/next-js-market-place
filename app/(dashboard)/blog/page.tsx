@@ -16,7 +16,9 @@ export default async function BlogPage() {
     <section>
       <h2>Blog</h2>
       <section className="mt-[2.3rem] lg:mt-[4.3rem] columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
-        <Suspense fallback={<h2 className="text-[4rem]">Posts is loading!</h2>}>
+        <Suspense
+          fallback={<h2 className="text-[4rem]/[4rem]">Posts is loading!</h2>}
+        >
           {data.map((post: Post) => {
             return (
               <article

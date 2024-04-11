@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default async function ShopPage() {
   const rawData = await getItems()
-
   const data = rawData.items
+
   const itemsCategories = [
     "technology",
     "interface design",

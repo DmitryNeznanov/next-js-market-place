@@ -1,6 +1,6 @@
 export default async function getPortfolio() {
   try {
-    const res = await fetch("http://localhost:3000/api/Portfolio", {
+    const res = await fetch("http://localhost:3000/api/portfolios", {
       cache: "no-store",
     })
     if (!res.ok) {

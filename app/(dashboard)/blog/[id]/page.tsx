@@ -7,7 +7,7 @@ import { Suspense } from "react"
 
 export async function generateStaticParams() {
   const rawData = await getPosts()
-  const data = rawData.items
+  const data = rawData.items as Post[]
   return data.map((post: Post) => {
     id: post._id
   })
@@ -29,10 +29,12 @@ export default async function PostPage({
   params: { id: Types.ObjectId }
 }) {
   const data = (await Post.findById(params.id)) as Post
-  // ! fix title / api for find by id Post
+  console.log(data.title)
   return (
     <section>
-      <Suspense fallback={<h2 className="text-[4rem]">Post is loading!</h2>}>
+      <Suspense
+        fallback={<h2 className="text-[4rem]/[4rem]">Post is loading!</h2>}
+      >
         <article className="lg:mx-[5rem] desktop:mx-[10rem]">
           <h2 className="capitalize">{data.title}</h2>
           <div className="mt-[1.5rem] flex flex-row gap-x-[1.4rem] uppercase">

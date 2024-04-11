@@ -31,7 +31,9 @@ export default async function PortfolioPostPage({
 
   return (
     <section>
-      <Suspense fallback={<h2 className="text-[4rem]">Item is loading!</h2>}>
+      <Suspense
+        fallback={<h2 className="text-[4rem]/[4rem]">Item is loading!</h2>}
+      >
         <article className="lg:mx-[5rem] desktop:mx-[10rem]">
           <h2 className="capitalize">{data.name}</h2>
           <p className="mt-[1.5rem] text-gray-light italic capitalize">

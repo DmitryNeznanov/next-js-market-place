@@ -38,7 +38,9 @@ export default async function HomePage({
         <Filters categories={itemCategories} />
       </div>
       <section className="mt-[2rem] lg:mt-[4rem] columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
-        <Suspense fallback={<h2 className="text-[4rem]">Items is loading!</h2>}>
+        <Suspense
+          fallback={<h2 className="text-[4rem]/[4rem]">Items is loading!</h2>}
+        >
           {actualData.map((item: PortfolioItem) => {
             return (
               <article

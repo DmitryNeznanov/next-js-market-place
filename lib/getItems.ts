@@ -1,6 +1,6 @@
 export default async function getItems() {
   try {
-    const res = await fetch("http://localhost:3000/api/Item", {
+    const res = await fetch("http://localhost:3000/api/items", {
       cache: "no-store",
     })
     if (!res.ok) {

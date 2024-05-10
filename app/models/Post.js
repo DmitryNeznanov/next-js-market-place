@@ -2,8 +2,10 @@ import mongoose, { Schema } from "mongoose"
 
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.Promise = global.Promise
-const portfolioSchema = new Schema({
-  name: String,
+const postSchema = new Schema({
+  title: String,
+  author: String,
+  date: Date,
   categories: [String],
   img: {
     src: String,
@@ -13,6 +15,5 @@ const portfolioSchema = new Schema({
   },
 })
 
-const Portfolio =
-  mongoose.models.portoflios || mongoose.model("portoflios", portfolioSchema)
-export default Portfolio
+const Post = mongoose.models.posts || mongoose.model("posts", postSchema)
+export default Post

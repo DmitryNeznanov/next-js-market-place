@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Suspense } from "react"
 import Filters from "../../components/Filters"
 import Item from "@/app/models/Item"
+
 export const metadata: Metadata = {
   title: "Sheen | Shop",
   description: "Shop page",
@@ -19,9 +20,9 @@ export default async function ShopPage({
   const rawData = await getItems()
   const data = rawData.items
 
-  const filteredData = await Item.find({ categories: [`${filterQuery}`] })
-
-  console.log(filteredData)
+  const filteredData = await Item.find({
+    categories: { $all: [`${filterQuery}`] },
+  })
 
   const itemsCategories = [
     "technology",
@@ -33,13 +34,18 @@ export default async function ShopPage({
   ]
 
   const actualData = filterQuery === undefined ? data : filteredData
+
   return (
     <section className="">
       <h2>Shop</h2>
       <Filters categories={itemsCategories} />
       <section className="mt-[2rem] lg:mt-[4rem] columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
-        <Suspense fallback={<h2>Items is loading!</h2>}>
+        <Suspense
+          fallback={<h2 className="text-[4rem]/[4rem]">Items is loading!</h2>}
+        >
           {actualData.map((item: any) => {
+            console.log(item.img)
+
             return (
               <article
                 className="mb-[3.125rem] max-w-full w-full inline-block"

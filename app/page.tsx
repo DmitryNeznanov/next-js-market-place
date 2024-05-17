@@ -20,7 +20,9 @@ export default async function HomePage({
   const rawData = await getPortfolio()
   const data: PortfolioItem[] = rawData.items
 
-  const filteredData = await Portfolio.find({ categories: [`${filterQuery}`] })
+  const filteredData = await Portfolio.find({
+    categories: { $all: [`${filterQuery}`] },
+  })
 
   const itemCategories = ["photo", "photography"]
 

@@ -34,6 +34,7 @@ export default async function ShopPage({
   ]
 
   const actualData = filterQuery === undefined ? data : filteredData
+  console.log(actualData)
 
   return (
     <section className="">
@@ -44,7 +45,7 @@ export default async function ShopPage({
           fallback={<h2 className="text-[4rem]/[4rem]">Items is loading!</h2>}
         >
           {actualData.map((item: any) => {
-            console.log(item.img)
+            // console.log(item.img.src)
 
             return (
               <article

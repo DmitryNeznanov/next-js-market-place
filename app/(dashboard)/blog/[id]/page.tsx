@@ -29,7 +29,6 @@ export default async function PostPage({
   params: { id: Types.ObjectId }
 }) {
   const data = (await Post.findById(params.id)) as Post
-  console.log(data.title)
   return (
     <section>
       <Suspense

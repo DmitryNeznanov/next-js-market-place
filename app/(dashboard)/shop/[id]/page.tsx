@@ -6,7 +6,7 @@ import { Suspense } from "react"
 export async function generateStaticParams() {
   const rawData = await getItems()
   const data = rawData.items
-  return data.map((item: any) => {
+  return data.map((item: Item) => {
     id: item._id
   })
 }
@@ -27,7 +27,7 @@ export default async function ItemPage({
 }: {
   params: { id: Types.ObjectId }
 }) {
-  const data = (await Item.findById(params.id)) as any
+  const data = (await Item.findById(params.id)) as Item
 
   return (
     <section>

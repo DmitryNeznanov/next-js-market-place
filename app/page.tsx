@@ -39,7 +39,13 @@ export default async function HomePage({
       <div className="mt-[4.875rem] lg:mt-[8.875rem]">
         <Filters categories={itemCategories} />
       </div>
-      <section className="mt-[2rem] lg:mt-[4rem] columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
+      <section
+        className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
+          actualData.length <= 4
+            ? "columns-2"
+            : "columns-1 sm:columns-2 lg:columns-3"
+        }`}
+      >
         <Suspense
           fallback={<h2 className="text-[4rem]/[4rem]">Items is loading!</h2>}
         >
@@ -59,6 +65,7 @@ export default async function HomePage({
                     width={item.img.width}
                     height={item.img.height}
                     alt={item.img.alt}
+                    priority={true}
                   ></Image>
                   <h3 className="mt-[1.5rem] group-hover:accent-underline">
                     {item.name}

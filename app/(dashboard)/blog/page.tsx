@@ -15,7 +15,11 @@ export default async function BlogPage() {
   return (
     <section>
       <h2>Blog</h2>
-      <section className="mt-[2.3rem] lg:mt-[4.3rem] columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
+      <section
+        className={`mt-[2.3rem] lg:mt-[4.3rem] gap-x-[3.125rem] ${
+          data.length <= 4 ? "columns-2" : "columns-1 sm:columns-2 lg:columns-3"
+        }`}
+      >
         <Suspense
           fallback={<h2 className="text-[4rem]/[4rem]">Posts is loading!</h2>}
         >
@@ -35,6 +39,7 @@ export default async function BlogPage() {
                     width={post.img.width}
                     height={post.img.height}
                     alt={post.img.alt}
+                    priority={true}
                   ></Image>
                   <h3 className="mt-[1.5rem]">{post.title}</h3>
                   <div className="mt-[1.2rem] flex flex-row gap-x-[1.4rem] uppercase">

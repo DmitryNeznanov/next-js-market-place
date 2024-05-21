@@ -22,3 +22,17 @@ interface Post {
     alt: string
   }
 }
+interface Item {
+  _id: Types.ObjectId
+  item: string
+  price: number
+  aboutItem: string
+  description: string
+  categories: string[]
+  img: {
+    src: string
+    width: number
+    height: number
+    alt: string
+  }
+}

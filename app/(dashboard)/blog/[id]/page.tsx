@@ -55,6 +55,7 @@ export default async function PostPage({
             width={data.img.width}
             height={data.img.height}
             alt={data.img.alt}
+            priority={true}
           />
         </article>
       </Suspense>

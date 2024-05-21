@@ -45,6 +45,7 @@ export default async function PortfolioPostPage({
             width={data.img.width}
             height={data.img.height}
             alt={data.img.alt}
+            priority={true}
           />
         </article>
       </Suspense>

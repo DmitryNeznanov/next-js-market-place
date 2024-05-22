@@ -1,13 +1,11 @@
 import DemoContent from "@/app/components/DemoContent"
 import Post from "@/app/models/Post"
-import getPosts from "@/lib/getPosts"
 import { Types } from "mongoose"
 import Image from "next/image"
 import { Suspense } from "react"
 
 export async function generateStaticParams() {
-  const rawData = await getPosts()
-  const data = rawData.items as Post[]
+  const data = (await Post.find()) as Post[]
   return data.map((post: Post) => {
     id: post._id
   })

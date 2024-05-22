@@ -1,13 +1,12 @@
-import getPortfolio from "@/lib/getPortfolio"
 import DemoContent from "../../components/DemoContent"
 import Portfolio from "@/app/models/Portfolio"
 import Image from "next/image"
 import { Types } from "mongoose"
 import { Suspense } from "react"
 export async function generateStaticParams() {
-  const rawData = await getPortfolio()
-  const data: PortfolioItem[] = rawData.items
-  return data.map((item: PortfolioItem) => {
+  const data = (await Portfolio.find()) as Portfolio[]
+
+  return data.map((item: Portfolio) => {
     id: item._id
   })
 }
@@ -16,7 +15,7 @@ export async function generateMetadata({
 }: {
   params: { id: Types.ObjectId }
 }) {
-  const data = await Portfolio.findById(params.id)
+  const data = (await Portfolio.findById(params.id)) as Portfolio
   return {
     title: `Sheen | ${data.name}'s page`,
     description: `This page has ${data._id} ID, and about ${data.name}'s work`,
@@ -27,7 +26,7 @@ export default async function PortfolioPostPage({
 }: {
   params: { id: Types.ObjectId }
 }) {
-  const data = await Portfolio.findById(params.id)
+  const data = (await Portfolio.findById(params.id)) as Portfolio
 
   return (
     <section>

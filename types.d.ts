@@ -1,4 +1,4 @@
-interface PortfolioItem {
+interface Portfolio {
   _id: Types.ObjectId
   name: string
   categories: string[]

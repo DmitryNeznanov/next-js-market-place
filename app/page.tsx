@@ -1,10 +1,10 @@
-import getPortfolio from "@/lib/getPortfolio"
 import { Metadata } from "next"
 import Image from "next/image"
 import { Suspense } from "react"
 import Filters from "./components/Filters"
 import Link from "next/link"
-import Portfolio from "@/app/models/Portfolio"
+import Portfolio from "./models/Portfolio"
+
 export const metadata: Metadata = {
   title: "Sheen | Home",
   description: "Home page",
@@ -15,18 +15,16 @@ export default async function HomePage({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-  const filterQuery = searchParams.filters
+  const data = (await Portfolio.find()) as Portfolio[]
 
-  const rawData = await getPortfolio()
-  const data: PortfolioItem[] = rawData.items
+  const filteredData = (await Portfolio.find({
+    categories: { $all: [`${searchParams.filters}`] },
+  })) as Portfolio[]
 
-  const filteredData = await Portfolio.find({
-    categories: { $all: [`${filterQuery}`] },
-  })
+  const itemCategories: string[] = ["photo", "photography"]
 
-  const itemCategories = ["photo", "photography"]
-
-  const actualData = filterQuery === undefined ? data : filteredData
+  const actualData: Portfolio[] =
+    searchParams.filters === undefined ? data : filteredData
 
   return (
     <section>
@@ -49,7 +47,7 @@ export default async function HomePage({
         <Suspense
           fallback={<h2 className="text-[4rem]/[4rem]">Items is loading!</h2>}
         >
-          {actualData.map((item: PortfolioItem) => {
+          {actualData.map((item: Portfolio) => {
             return (
               <article
                 className="mb-[3.125rem] max-w-full w-full inline-block"

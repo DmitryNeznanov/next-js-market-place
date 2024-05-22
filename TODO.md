@@ -1,2 +1,2 @@
-lib folder
+Error handling?
 fix Image bug

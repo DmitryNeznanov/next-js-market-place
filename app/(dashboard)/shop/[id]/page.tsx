@@ -1,11 +1,9 @@
 import Item from "@/app/models/Item"
-import getItems from "@/lib/getItems"
 import { Types } from "mongoose"
 import Image from "next/image"
 import { Suspense } from "react"
 export async function generateStaticParams() {
-  const rawData = await getItems()
-  const data = rawData.items
+  const data: Item[] = await Item.find()
   return data.map((item: Item) => {
     id: item._id
   })
@@ -15,10 +13,10 @@ export async function generateMetadata({
 }: {
   params: { id: Types.ObjectId }
 }) {
-  const data = await Item.findById(params.id)
+  const data = (await Item.findById(params.id)) as Item
   return {
     title: `Sheen | ${data.item}`,
-    description: `This page about "${data.item}" and has ${data.id} ID`,
+    description: `This page about "${data.item}" and has ${data._id} ID`,
   }
 }
 

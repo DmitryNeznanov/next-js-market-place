@@ -37,15 +37,15 @@ export default async function HomePage({
       <div className="mt-[4.875rem] lg:mt-[8.875rem]">
         <Filters categories={itemCategories} />
       </div>
-      <section
-        className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
-          actualData.length <= 4
-            ? "columns-2"
-            : "columns-1 sm:columns-2 lg:columns-3"
-        }`}
+      <Suspense
+        fallback={<h2 className="text-[4rem]/[4rem]">Items is loading...</h2>}
       >
-        <Suspense
-          fallback={<h2 className="text-[4rem]/[4rem]">Items is loading!</h2>}
+        <section
+          className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
+            actualData.length <= 4
+              ? "columns-2"
+              : "columns-1 sm:columns-2 lg:columns-3"
+          }`}
         >
           {actualData.map((item: Portfolio) => {
             return (
@@ -75,8 +75,8 @@ export default async function HomePage({
               </article>
             )
           })}
-        </Suspense>
-      </section>
+        </section>
+      </Suspense>
     </section>
   )
 }

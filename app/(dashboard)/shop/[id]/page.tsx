@@ -30,7 +30,7 @@ export default async function ItemPage({
   return (
     <section>
       <Suspense
-        fallback={<h2 className="text-[4rem]/[4rem]">Item is loading!</h2>}
+        fallback={<h2 className="text-[4rem]/[4rem]">Item is loading...</h2>}
       >
         <div>
           <h2>{data.item}</h2>

@@ -37,15 +37,15 @@ export default async function ShopPage({
     <section>
       <h2>Shop</h2>
       <Filters categories={itemsCategories} />
-      <section
-        className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
-          actualData.length <= 4
-            ? "columns-2"
-            : "columns-1 sm:columns-2 lg:columns-3"
-        }`}
+      <Suspense
+        fallback={<h2 className="text-[4rem]/[4rem]">Items is loading...</h2>}
       >
-        <Suspense
-          fallback={<h2 className="text-[4rem]/[4rem]">Items is loading!</h2>}
+        <section
+          className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
+            actualData.length <= 4
+              ? "columns-2"
+              : "columns-1 sm:columns-2 lg:columns-3"
+          }`}
         >
           {actualData.map((item: Item) => {
             return (
@@ -57,14 +57,14 @@ export default async function ShopPage({
                   className="group"
                   href={`/shop/${item._id}`}
                 >
-                  {/* <Image
+                  <Image
                     className="w-full"
                     src={item.img.src}
                     width={item.img.width}
                     height={item.img.height}
                     alt={item.img.alt}
                     priority={true}
-                  ></Image> */}
+                  ></Image>
                   <h3 className="mt-[1.25rem] lg:mt-[1.5rem] group-hover:accent-underline">
                     {item.item}
                   </h3>
@@ -73,8 +73,8 @@ export default async function ShopPage({
               </article>
             )
           })}
-        </Suspense>
-      </section>
+        </section>
+      </Suspense>
     </section>
   )
 }

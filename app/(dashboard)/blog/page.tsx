@@ -13,13 +13,15 @@ export default async function BlogPage() {
   return (
     <section>
       <h2>Blog</h2>
-      <section
-        className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
-          data.length <= 4 ? "columns-2" : "columns-1 sm:columns-2 lg:columns-3"
-        }`}
+      <Suspense
+        fallback={<h2 className="text-[4rem]/[4rem]">Posts is loading...</h2>}
       >
-        <Suspense
-          fallback={<h2 className="text-[4rem]/[4rem]">Posts is loading!</h2>}
+        <section
+          className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
+            data.length <= 4
+              ? "columns-2"
+              : "columns-1 sm:columns-2 lg:columns-3"
+          }`}
         >
           {data.map((post: Post) => {
             return (
@@ -59,8 +61,8 @@ export default async function BlogPage() {
               </article>
             )
           })}
-        </Suspense>
-      </section>
+        </section>
+      </Suspense>
     </section>
   )
 }

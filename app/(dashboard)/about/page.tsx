@@ -18,7 +18,6 @@ export default function About() {
         </p>
         <div className="mt-[2.4rem] mx-auto  max-w-[34.375rem] max-h-[28.125rem]">
           <Image
-            className=""
             src={salva}
             alt="Salva_Gideon"
             priority={true}

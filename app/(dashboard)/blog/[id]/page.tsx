@@ -1,13 +1,11 @@
 import DemoContent from "@/app/components/DemoContent"
 import Post from "@/app/models/Post"
-import getPosts from "@/lib/getPosts"
 import { Types } from "mongoose"
 import Image from "next/image"
 import { Suspense } from "react"
 
 export async function generateStaticParams() {
-  const rawData = await getPosts()
-  const data = rawData.items as Post[]
+  const data = (await Post.find()) as Post[]
   return data.map((post: Post) => {
     id: post._id
   })
@@ -29,11 +27,10 @@ export default async function PostPage({
   params: { id: Types.ObjectId }
 }) {
   const data = (await Post.findById(params.id)) as Post
-  console.log(data.title)
   return (
     <section>
       <Suspense
-        fallback={<h2 className="text-[4rem]/[4rem]">Post is loading!</h2>}
+        fallback={<h2 className="text-[4rem]/[4rem]">Post is loading...</h2>}
       >
         <article className="lg:mx-[5rem] desktop:mx-[10rem]">
           <h2 className="capitalize">{data.title}</h2>
@@ -56,6 +53,7 @@ export default async function PostPage({
             width={data.img.width}
             height={data.img.height}
             alt={data.img.alt}
+            priority={true}
           />
         </article>
       </Suspense>

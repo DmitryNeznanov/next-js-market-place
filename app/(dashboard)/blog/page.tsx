@@ -1,23 +1,27 @@
-import getPosts from "@/lib/getPosts"
 import { Metadata } from "next"
 import Image from "next/image"
 import { Suspense } from "react"
 import Link from "next/link"
+import Post from "@/app/models/Post"
 
 export const metadata: Metadata = {
   title: "Sheen | Blog",
   description: "Blog page",
 }
 export default async function BlogPage() {
-  const rawData = await getPosts()
-  const data = rawData.items
-
+  const data = (await Post.find()) as Post[]
   return (
     <section>
       <h2>Blog</h2>
-      <section className="mt-[2.3rem] lg:mt-[4.3rem] columns-1 sm:columns-2 lg:columns-3 gap-x-[3.125rem]">
-        <Suspense
-          fallback={<h2 className="text-[4rem]/[4rem]">Posts is loading!</h2>}
+      <Suspense
+        fallback={<h2 className="text-[4rem]/[4rem]">Posts is loading...</h2>}
+      >
+        <section
+          className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
+            data.length <= 4
+              ? "columns-2"
+              : "columns-1 sm:columns-2 lg:columns-3"
+          }`}
         >
           {data.map((post: Post) => {
             return (
@@ -35,6 +39,7 @@ export default async function BlogPage() {
                     width={post.img.width}
                     height={post.img.height}
                     alt={post.img.alt}
+                    priority={true}
                   ></Image>
                   <h3 className="mt-[1.5rem]">{post.title}</h3>
                   <div className="mt-[1.2rem] flex flex-row gap-x-[1.4rem] uppercase">
@@ -56,8 +61,8 @@ export default async function BlogPage() {
               </article>
             )
           })}
-        </Suspense>
-      </section>
+        </section>
+      </Suspense>
     </section>
   )
 }

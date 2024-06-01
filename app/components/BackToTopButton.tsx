@@ -25,7 +25,7 @@ export default function BackToTopButton() {
   }
   return (
     <button
-      className=" fixed right-[3.5%] bottom-[6.5%] z-[999]"
+      className=" fixed hidden right-[3.5%] bottom-[6.5%] z-[999]"
       id="BackToTopButton"
       onClick={() => {
         scrollToTop()

@@ -8,6 +8,12 @@ const itemSchema = new Schema({
   aboutItem: String,
   description: String,
   categories: [String],
+  img: {
+    src: String,
+    width: Number,
+    height: Number,
+    alt: String,
+  },
 })
 
 const Item = mongoose.models.items || mongoose.model("items", itemSchema)

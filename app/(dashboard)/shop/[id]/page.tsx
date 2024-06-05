@@ -34,12 +34,12 @@ export default async function ItemPage({
       >
         <div>
           <h2>{data.item}</h2>
-          {/* <Image
+          <Image
             src={data.img.src}
             width={data.img.width}
             height={data.img.height}
             alt={data.img.alt}
-          /> */}
+          />
         </div>
       </Suspense>
     </section>

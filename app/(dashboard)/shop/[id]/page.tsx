@@ -29,13 +29,13 @@ export default async function ItemPage({
   const data = (await Item.findById(params.id)) as Item
 
   return (
-    <section className="">
+    <section className="flex flex-col lg:flex-row">
       <Suspense
         fallback={<h2 className="text-[4rem]/[4rem]">Item is loading...</h2>}
       >
-        <section>
+        <section className="max-w-[50%] w-full">
           <Image
-            className="w-[50%]"
+            className="w-[100%]"
             src={data.img.src}
             width={data.img.width}
             height={data.img.height}
@@ -56,18 +56,38 @@ export default async function ItemPage({
         </section>
         <article>
           <h2>{data.item}</h2>
-          <p className="heading-2">{data.price}$</p>
-          <div>{/* Raiting */}</div>
-          <p>{data.aboutItem}</p>
-          <form action="submit">
-            <div>{/* size */}</div>
-            <input
-              className="input-primary"
-              defaultValue="1"
-            ></input>
-            <button className="button-primary">add to cart</button>
+          <p className="mt-[1rem] heading-2">{data.price}$</p>
+          <div className="mt-[2rem] lg:mt-[4rem]">
+            <p className="text-based">1 customer review</p> {/* Raiting */}
+          </div>
+          <p className="mt-[.75rem] lg:mt-[1.5rem]">{data.aboutItem}</p>
+          <form className="">
+            <div className="mt-[1.5rem]">
+              <label
+                className=" text-base"
+                htmlFor="size"
+              >
+                Choose an size:
+              </label>
+              <select
+                className="w-full py-[.25rem] text-base bg-black border-b border-b-gray"
+                name="size"
+              >
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="test">test</option>
+              </select>
+            </div>
+            <div className="mt-[2.5rem] lg:mt-[5rem] flex flex-row gap-x-[.5rem] lg:gap-x-[1rem]">
+              <input
+                className="w-[15%] input-primary text-center border border-gray-light"
+                defaultValue="1"
+              ></input>
+              <button className="w-full button-primary">add to cart</button>
+            </div>
           </form>
-          <p className="flex flex-row capitalize">
+          <p className="mt-[1.5rem] lg:mt-[3rem] flex flex-row capitalize">
             Categories:&ensp;
             {data.categories.map((category, i) => {
               return (

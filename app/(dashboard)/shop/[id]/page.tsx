@@ -1,3 +1,4 @@
+import StarRating from "@/app/components/StarRating"
 import Item from "@/app/models/Item"
 import { Types } from "mongoose"
 import Image from "next/image"
@@ -55,10 +56,10 @@ export default async function ItemPage({
           })} */}
         </section>
         <article>
-          <h2>{data.item}</h2>
+          <h2 className="capitalize">{data.item}</h2>
           <p className="mt-[1rem] heading-2">{data.price}$</p>
           <div className="mt-[2rem] lg:mt-[4rem]">
-            <p className="text-based">1 customer review</p> {/* Raiting */}
+            <StarRating />
           </div>
           <p className="mt-[.75rem] lg:mt-[1.5rem]">{data.aboutItem}</p>
           <form className="">
@@ -70,13 +71,12 @@ export default async function ItemPage({
                 Choose an size:
               </label>
               <select
-                className="w-full py-[.25rem] text-base bg-black border-b border-b-gray"
+                className="w-full py-[.25rem] text-base text-gray bg-black border-b border-b-gray"
                 name="size"
               >
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
-                <option value="test">test</option>
               </select>
             </div>
             <div className="mt-[2.5rem] lg:mt-[5rem] flex flex-row gap-x-[.5rem] lg:gap-x-[1rem]">

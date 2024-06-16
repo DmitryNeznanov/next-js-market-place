@@ -1,3 +1,4 @@
+import ItemCarousel from "@/app/components/ItemCarousel"
 import StarRating from "@/app/components/StarRating"
 import Item from "@/app/models/Item"
 import { Types } from "mongoose"
@@ -30,32 +31,14 @@ export default async function ItemPage({
   const data = (await Item.findById(params.id)) as Item
 
   return (
-    <section className="flex flex-col lg:flex-row">
+    <section className="flex flex-col lg:flex-row gap-y-[2.55rem] lg:gap-y-[0] lg:gap-x-[3.1rem]">
       <Suspense
         fallback={<h2 className="text-[4rem]/[4rem]">Item is loading...</h2>}
       >
-        <section className="max-w-[50%] w-full">
-          <Image
-            className="w-[100%]"
-            src={data.img.src}
-            width={data.img.width}
-            height={data.img.height}
-            alt={data.img.alt}
-            priority={true}
-          />
-          {/* {Array.from({ length: 5 }).map((_, i) => {
-            return (
-              <Image
-                key={i}
-                src={data.img.src}
-                width={data.img.width}
-                height={data.img.height}
-                alt={data.img.alt}
-              />
-            )
-          })} */}
+        <section className="w-full lg:max-w-[60%]">
+          <ItemCarousel data={data} />
         </section>
-        <article>
+        <article className="">
           <h2 className="capitalize">{data.item}</h2>
           <p className="mt-[1rem] heading-2">{data.price}$</p>
           <div className="mt-[2rem] lg:mt-[4rem]">
@@ -65,7 +48,7 @@ export default async function ItemPage({
           <form className="">
             <div className="mt-[1.5rem]">
               <label
-                className=" text-base"
+                className="text-base"
                 htmlFor="size"
               >
                 Choose an size:

@@ -29,6 +29,7 @@ export default async function ItemPage({
   params: { id: Types.ObjectId }
 }) {
   const data = (await Item.findById(params.id)) as Item
+  const safetyData = JSON.parse(JSON.stringify(data))
 
   return (
     <section className="flex flex-col lg:flex-row gap-y-[2.55rem] lg:gap-y-[0] lg:gap-x-[3.1rem]">
@@ -36,7 +37,7 @@ export default async function ItemPage({
         fallback={<h2 className="text-[4rem]/[4rem]">Item is loading...</h2>}
       >
         <section className="w-full lg:max-w-[60%]">
-          <ItemCarousel data={data} />
+          <ItemCarousel data={safetyData} />
         </section>
         <article className="">
           <h2 className="capitalize">{data.item}</h2>

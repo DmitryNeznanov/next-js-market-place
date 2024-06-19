@@ -5,17 +5,26 @@ import { useState } from "react"
 export default function ItemCarousel({ data }: { data: Item }) {
   const [index, setIndex] = useState(1)
 
-  function setSlide(i: number) {
+  function updateIndex(i: number) {
     setIndex(i + 1)
+  }
 
-    const carousel = document.getElementById("carousel")
+  function setSlide(i: number) {
     const currentSlide = document.getElementById("currentSlide")
-    const clickedSlide = document.getElementById(`slide-${i}`)
-    carousel?.replaceChild(clickedSlide, currentSlide)
+    const clickedSlide = document.getElementById(`slide-${i + 1}`)
+    const clickedSlideData: any = [
+      clickedSlide?.getAttribute("src"),
+      clickedSlide?.getAttribute("width"),
+      clickedSlide?.getAttribute("height"),
+      clickedSlide?.getAttribute("alt"),
+    ]
 
-    // const clone = test?.cloneNode(true)
-    // carousel?.removeChild(currentSlide)
-    // carousel?.appendChild(clone)
+    const [src, width, height, alt] = clickedSlideData
+
+    currentSlide?.setAttribute("src", src)
+    currentSlide?.setAttribute("width", width)
+    currentSlide?.setAttribute("height", height)
+    currentSlide?.setAttribute("alt", alt)
   }
   return (
     <div
@@ -26,19 +35,18 @@ export default function ItemCarousel({ data }: { data: Item }) {
         return (
           <Image
             className={`w-full h-full ${
-              index === i + 1 ? "border-[5px] border-accent" : ""
+              index === i + 1 ? "border-[5px] border-accent box-border" : ""
             }`}
             key={i}
             src={data.img.src}
             width={data.img.width}
             height={data.img.height}
             alt={data.img.alt}
+            priority={true}
             onClick={() => {
+              updateIndex(i)
               setSlide(i)
             }}
-            priority={true}
-            // id={`${index === i + 1 ? "currentSlide" : `slide-${i + 1}`}`}
-
             id={`${`slide-${i + 1}`}`}
           />
         )
@@ -49,7 +57,8 @@ export default function ItemCarousel({ data }: { data: Item }) {
         width={data.img.width}
         height={data.img.height}
         alt={data.img.alt}
-        // id="currentSlide"
+        priority={true}
+        id="currentSlide"
       />
     </div>
   )

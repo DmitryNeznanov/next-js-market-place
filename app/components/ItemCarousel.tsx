@@ -28,7 +28,8 @@ export default function ItemCarousel({ data }: { data: Item }) {
   }
   return (
     <div
-      className="max-h-[31.25rem] grid grid-cols-[20%_80%] gap-[1.5rem] grid-rows-[25%_25%_25%_25%] grid-flow-col"
+      // max-h-[31.25rem]
+      className="grid grid-cols-[20%_80%] gap-[1.5rem] grid-rows-[25%_25%_25%_25%] grid-flow-col"
       id="carousel"
     >
       {Array.from({ length: 4 }).map((_, i) => {

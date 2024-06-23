@@ -28,22 +28,22 @@ export default function ItemCarousel({ data }: { data: Item }) {
   }
   return (
     <div
-      // max-h-[31.25rem]
-      className="grid grid-cols-[20%_80%] gap-[1.5rem] grid-rows-[25%_25%_25%_25%] grid-flow-col"
+      // max-h-[28.25rem]
+      className=" grid grid-cols-[20%_80%] gap-[.75rem] sm:gap-[1.5rem] grid-rows-[25%_25%_25%_25%] grid-flow-col"
       id="carousel"
     >
       {Array.from({ length: 4 }).map((_, i) => {
         return (
           <Image
-            className={`w-full h-full ${
+            className={`w-full h-full cursor-pointer ${
               index === i + 1 ? "border-[5px] border-accent box-border" : ""
             }`}
-            key={i}
             src={data.img.src}
             width={data.img.width}
             height={data.img.height}
             alt={data.img.alt}
             priority={true}
+            key={i}
             onClick={() => {
               updateIndex(i)
               setSlide(i)

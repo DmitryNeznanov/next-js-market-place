@@ -38,7 +38,7 @@ export default function StarRating() {
           </div>
         )
       })}
-      <p className="ml-[1rem] text-gray">1 customer review</p>
+      <p className="ml-[1rem] text-gray-light">1 customer review</p>
     </div>
   )
 }

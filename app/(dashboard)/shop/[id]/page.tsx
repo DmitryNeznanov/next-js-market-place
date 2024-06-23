@@ -57,7 +57,7 @@ export default async function ItemPage({
                   Choose an size:
                 </label>
                 <select
-                  className="w-full py-[.25rem] text-base text-gray bg-black border-b border-b-gray"
+                  className="w-full py-[.25rem] text-base text-gray-light bg-black border-b border-b-gray"
                   name="size"
                 >
                   <option value="small">Small</option>
@@ -73,12 +73,12 @@ export default async function ItemPage({
                 <button className="w-full button-primary">add to cart</button>
               </div>
             </form>
-            <p className="mt-[1.5rem] lg:mt-[3rem] flex flex-row capitalize">
+            <p className="mt-[1.5rem] lg:mt-[3rem]  capitalize">
               Categories:&ensp;
               {data.categories.map((category, i) => {
                 return (
                   <span
-                    className="text-gray"
+                    className="text-gray-light"
                     key={i}
                   >
                     {i + 1 !== data.categories.length
@@ -90,7 +90,7 @@ export default async function ItemPage({
             </p>
           </section>
         </div>
-        <section>
+        <section className="mt-[2rem] sm:mt-[4rem] lg:mt-[8rem]">
           <Tabs data={safetyData} />
         </section>
       </Suspense>

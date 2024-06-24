@@ -26,8 +26,10 @@ interface Item {
   _id: Types.ObjectId
   item: string
   price: number
+  sizes: string[]
   aboutItem: string
   description: string
+  information: string
   categories: string[]
   img: {
     src: string
@@ -35,4 +37,6 @@ interface Item {
     height: number
     alt: string
   }
+  itemSlider: [{ src: string; width: number; height: number; alt: string }]
+  reviews: [{ name: string; email: string; body: string; rating: number }]
 }

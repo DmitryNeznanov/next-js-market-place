@@ -32,7 +32,7 @@ export default function Tabs({ data }: { data: Item }) {
           }
         )}
       </div>
-      {[[data.description], [data.aboutItem]].map((content, i) => {
+      {[[data.description], [data.information]].map((content, i) => {
         return (
           <section
             className={`pt-[1.5rem] lg:pt-[3.4rem] ${

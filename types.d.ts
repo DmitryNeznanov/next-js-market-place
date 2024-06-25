@@ -25,11 +25,11 @@ interface Post {
 interface Item {
   _id: Types.ObjectId
   item: string
-  price: number
   sizes: string[]
-  aboutItem: string
-  description: string
-  information: string
+  price: number
+  about: string[]
+  description: string[]
+  information: string[]
   categories: string[]
   img: {
     src: string

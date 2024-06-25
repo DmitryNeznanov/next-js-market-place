@@ -5,10 +5,10 @@ mongoose.Promise = global.Promise
 const itemSchema = new Schema({
   item: String,
   price: Number,
-  aboutItem: String,
   sizes: [String],
-  description: String,
-  information: String,
+  about: [String],
+  description: [String],
+  information: [String],
   categories: [String],
   img: {
     src: String,

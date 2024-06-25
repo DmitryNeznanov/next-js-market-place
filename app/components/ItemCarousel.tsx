@@ -13,15 +13,15 @@ export default function ItemCarousel({ data }: { data: Item }) {
     const currentSlide = document.getElementById("currentSlide")
     const clickedSlide = document.getElementById(`slide-${i + 1}`)
     const clickedSlideData: any = [
-      clickedSlide?.getAttribute("src"),
+      clickedSlide?.getAttribute("srcset"),
       clickedSlide?.getAttribute("width"),
       clickedSlide?.getAttribute("height"),
       clickedSlide?.getAttribute("alt"),
     ]
 
-    const [src, width, height, alt] = clickedSlideData
+    const [srcset, width, height, alt] = clickedSlideData
 
-    currentSlide?.setAttribute("src", src)
+    currentSlide?.setAttribute("srcset", srcset)
     currentSlide?.setAttribute("width", width)
     currentSlide?.setAttribute("height", height)
     currentSlide?.setAttribute("alt", alt)
@@ -32,16 +32,16 @@ export default function ItemCarousel({ data }: { data: Item }) {
       className=" grid grid-cols-[20%_80%] gap-[.75rem] sm:gap-[1.5rem] grid-rows-[25%_25%_25%_25%] grid-flow-col"
       id="carousel"
     >
-      {Array.from({ length: 4 }).map((_, i) => {
+      {data.itemSlider.map((image, i) => {
         return (
           <Image
             className={`w-full h-full cursor-pointer ${
               index === i + 1 ? "border-[5px] border-accent box-border" : ""
             }`}
-            src={data.img.src}
-            width={data.img.width}
-            height={data.img.height}
-            alt={data.img.alt}
+            src={image.src}
+            width={image.width}
+            height={image.height}
+            alt={image.alt}
             priority={true}
             key={i}
             onClick={() => {

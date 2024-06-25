@@ -47,7 +47,7 @@ export default async function ItemPage({
             <div className="mt-[2rem] lg:mt-[4rem]">
               <StarRating />
             </div>
-            <p className="mt-[.75rem] lg:mt-[1.5rem]">{data.aboutItem}</p>
+            <p className="mt-[.75rem] lg:mt-[1.5rem]">{data.about}</p>
             <form className="">
               <div className="mt-[1.5rem]">
                 <label
@@ -57,12 +57,20 @@ export default async function ItemPage({
                   Choose an size:
                 </label>
                 <select
-                  className="w-full py-[.25rem] text-base text-gray-light bg-black border-b border-b-gray"
+                  className="w-full py-[.25rem] text-base text-gray-light bg-black border-b border-b-gray capitalize"
                   name="size"
                 >
-                  <option value="small">Small</option>
-                  <option value="medium">Medium</option>
-                  <option value="large">Large</option>
+                  {data.sizes.map((size, i) => {
+                    return (
+                      <option
+                        className="capitalize"
+                        value={size}
+                        key={i}
+                      >
+                        {size}
+                      </option>
+                    )
+                  })}
                 </select>
               </div>
               <div className="mt-[2.5rem] lg:mt-[5rem] flex flex-row gap-x-[.5rem] lg:gap-x-[1rem]">

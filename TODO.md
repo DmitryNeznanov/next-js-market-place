@@ -5,6 +5,8 @@ grid-rows
 split Components folder ?
 change slide throught class name ?
 
+fix hr
+
 hgroup https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
 search https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search
 hq images 4x

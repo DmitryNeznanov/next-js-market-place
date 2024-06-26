@@ -27,9 +27,9 @@ interface Item {
   item: string
   sizes: string[]
   price: number
-  about: string[]
-  description: string[]
-  information: string[]
+  about: string
+  description: [{ content: string }]
+  information: [{ content: string }]
   categories: string[]
   img: {
     src: string

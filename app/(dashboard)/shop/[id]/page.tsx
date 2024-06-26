@@ -45,7 +45,7 @@ export default async function ItemPage({
             <h2 className="capitalize">{data.item}</h2>
             <p className="mt-[1rem] heading-2">{data.price}$</p>
             <div className="mt-[2rem] lg:mt-[4rem]">
-              <StarRating />
+              <StarRating data={safetyData} />
             </div>
             <p className="mt-[.75rem] lg:mt-[1.5rem]">{data.about}</p>
             <form className="">

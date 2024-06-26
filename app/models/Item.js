@@ -6,9 +6,9 @@ const itemSchema = new Schema({
   item: String,
   price: Number,
   sizes: [String],
-  about: [String],
-  description: [String],
-  information: [String],
+  about: String,
+  description: [{ content: String }],
+  information: [{ content: String }],
   categories: [String],
   img: {
     src: String,

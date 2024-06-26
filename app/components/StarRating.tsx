@@ -2,8 +2,16 @@
 
 import { useState } from "react"
 
-export default function StarRating() {
-  const [rating, setRating] = useState(Math.floor(Math.random() * 5))
+export default function StarRating({ data }: { data: Item }) {
+  const [rating, setRating] = useState(getRating())
+
+  function getRating() {
+    let num = 0
+    data.reviews.forEach((rating) => {
+      num += rating.rating / 2
+    })
+    return Math.floor(num)
+  }
 
   function giveRating(i: number) {
     setRating(i)
@@ -38,7 +46,9 @@ export default function StarRating() {
           </div>
         )
       })}
-      <p className="ml-[1rem] text-gray-light">1 customer review</p>
+      <p className="ml-[1rem] text-gray-light">
+        {data.reviews.length} customer review
+      </p>
     </div>
   )
 }

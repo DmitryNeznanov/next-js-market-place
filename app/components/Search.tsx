@@ -48,56 +48,58 @@ export default function Search({ toggleSearch }: { toggleSearch: Function }) {
               </svg>
             </button>
           </div>
-          <form className="container flex justify-center">
-            <div className="max-w-[43.75rem] w-screen flex flex-row items-center justify-between border-b-[.0625rem] border-b-background">
-              <input
-                className="block w-full input-primary border-b-0"
-                type="text"
-                placeholder="type to search"
-              />
-              <button>
-                <svg
-                  onClick={() => {
-                    toggleSearch()
-                  }}
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g clipPath="url(#clip0_88_11)">
-                    <path
-                      className="stroke-background transition-[hover] group-hover:stroke-accent"
-                      d="M9.96875 17.1875C13.9556 17.1875 17.1875 13.9556 17.1875 9.96875C17.1875 5.98194 13.9556 2.75 9.96875 2.75C5.98194 2.75 2.75 5.98194 2.75 9.96875C2.75 13.9556 5.98194 17.1875 9.96875 17.1875Z"
-                      stroke="black"
-                      strokeWidth="1.375"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-
-                    <path
-                      className="stroke-background transition-[hover] group-hover:stroke-accent"
-                      d="M15.0703 15.0742L19.2469 19.2508"
-                      stroke="black"
-                      strokeWidth="1.375"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </g>
-
-                  <defs>
-                    <clipPath id="clip0_88_11">
-                      <rect
-                        width="22"
-                        height="22"
+          <search>
+            <form className="container flex justify-center">
+              <div className="max-w-[43.75rem] w-screen flex flex-row items-center justify-between border-b-[.0625rem] border-b-background">
+                <input
+                  className="block w-full input-primary border-b-0"
+                  type="text"
+                  placeholder="type to search"
+                />
+                <button>
+                  <svg
+                    onClick={() => {
+                      toggleSearch()
+                    }}
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clipPath="url(#clip0_88_11)">
+                      <path
+                        className="stroke-background transition-[hover] group-hover:stroke-accent"
+                        d="M9.96875 17.1875C13.9556 17.1875 17.1875 13.9556 17.1875 9.96875C17.1875 5.98194 13.9556 2.75 9.96875 2.75C5.98194 2.75 2.75 5.98194 2.75 9.96875C2.75 13.9556 5.98194 17.1875 9.96875 17.1875Z"
+                        stroke="black"
+                        strokeWidth="1.375"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </button>
-            </div>
-          </form>
+
+                      <path
+                        className="stroke-background transition-[hover] group-hover:stroke-accent"
+                        d="M15.0703 15.0742L19.2469 19.2508"
+                        stroke="black"
+                        strokeWidth="1.375"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </g>
+
+                    <defs>
+                      <clipPath id="clip0_88_11">
+                        <rect
+                          width="22"
+                          height="22"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </search>
         </div>
       </div>
     </section>

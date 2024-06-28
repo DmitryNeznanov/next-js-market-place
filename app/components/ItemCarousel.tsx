@@ -12,25 +12,30 @@ export default function ItemCarousel({ data }: { data: Item }) {
   function setSlide(i: number) {
     const currentSlide = document.getElementById("currentSlide")
     const clickedSlide = document.getElementById(`slide-${i + 1}`)
-    const clickedSlideData: any = [
-      clickedSlide?.getAttribute("srcset"),
-      clickedSlide?.getAttribute("width"),
-      clickedSlide?.getAttribute("height"),
-      clickedSlide?.getAttribute("alt"),
-    ]
 
-    const [srcset, width, height, alt] = clickedSlideData
+    const clickedSlideData: any = {
+      srcset: clickedSlide?.getAttribute("srcset"),
+      width: clickedSlide?.getAttribute("width"),
+      height: clickedSlide?.getAttribute("height"),
+      alt: clickedSlide?.getAttribute("alt"),
+    }
 
-    currentSlide?.setAttribute("srcset", srcset)
-    currentSlide?.setAttribute("width", width)
-    currentSlide?.setAttribute("height", height)
-    currentSlide?.setAttribute("alt", alt)
+    currentSlide?.setAttribute("srcset", clickedSlideData.srcset)
+    currentSlide?.setAttribute("width", clickedSlideData.width)
+    currentSlide?.setAttribute("height", clickedSlideData.height)
+    currentSlide?.setAttribute("alt", clickedSlideData.alt)
+
+    // for (const property in clickedSlideData) {
+    //   if (Object.prototype.hasOwnProperty.call(clickedSlideData, property)) {
+    //     currentSlide?.setAttribute(property, clickedSlide[property]) as HTMLAttributeReferrerPolicy
+    //   }
+    // }
   }
+
   return (
     <div
       // max-h-[28.25rem]
       className=" grid grid-cols-[20%_80%] gap-[.75rem] sm:gap-[1.5rem] grid-rows-[25%_25%_25%_25%] grid-flow-col"
-      id="carousel"
     >
       {data.itemSlider.map((image, i) => {
         return (
@@ -53,7 +58,7 @@ export default function ItemCarousel({ data }: { data: Item }) {
         )
       })}
       <Image
-        className="w-full h-full last:row-span-4"
+        className={`w-full h-full last:row-span-4 `}
         src={data.img.src}
         width={data.img.width}
         height={data.img.height}

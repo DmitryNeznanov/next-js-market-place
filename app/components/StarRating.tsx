@@ -6,11 +6,13 @@ export default function StarRating({ data }: { data: Item }) {
   const [rating, setRating] = useState(getRating())
 
   function getRating() {
-    let num = 0
-    data.reviews.forEach((rating) => {
-      num += rating.rating / 2
+    let sum = 0
+    data.reviews.forEach((review) => {
+      sum += review.rating
     })
-    return Math.floor(num)
+    const averageRating = Math.floor(sum / data.reviews.length)
+
+    return averageRating
   }
 
   function giveRating(i: number) {
@@ -26,9 +28,9 @@ export default function StarRating({ data }: { data: Item }) {
         return (
           <div
             key={i}
-            onClick={() => {
-              giveRating(i + 1)
-            }}
+            // onClick={() => {
+            //   giveRating(i + 1)
+            // }}
           >
             <svg
               width="15"

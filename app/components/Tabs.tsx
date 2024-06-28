@@ -109,8 +109,8 @@ export default function Tabs({ data }: { data: Item }) {
                         <p className="mt-[.5rem] max-w-[50rem] first-letter:uppercase">
                           {review.body}
                         </p>
+                        <hr className="my-[2rem] border-gray" />
                       </article>
-                      <hr className="my-[2rem] border-gray last:hidden" />
                     </div>
                   )
                 })}

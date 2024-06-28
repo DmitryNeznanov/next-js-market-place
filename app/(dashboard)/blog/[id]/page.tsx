@@ -33,8 +33,8 @@ export default async function PostPage({
         fallback={<h2 className="text-[4rem]/[4rem]">Post is loading...</h2>}
       >
         <article className="lg:mx-[5rem] desktop:mx-[10rem]">
-          <h2 className="capitalize">{data.title}</h2>
-          <div className="mt-[1.5rem] flex flex-row gap-x-[1.4rem] uppercase">
+          <hgroup className="mt-[1.5rem] flex flex-row gap-x-[1.4rem] uppercase">
+            <h2 className="capitalize">{data.title}</h2>
             <p>
               <time dateTime={`${data.date}`}>
                 {new Date(data.date).toLocaleDateString("en-US", {
@@ -44,9 +44,9 @@ export default async function PostPage({
                 })}
               </time>
             </p>
-            <div className="text-gray-light">/</div>
+            <span className="text-gray-light">/</span>
             <p className="accent-underline">{data.categories}</p>
-          </div>
+          </hgroup>
           <Image
             className="mt-[1.5rem] lg:mt-[3rem] w-full max-h-[10rem] sm:max-h-[20.25rem] desktop:max-h-[31.25rem]"
             src={data.img.src}

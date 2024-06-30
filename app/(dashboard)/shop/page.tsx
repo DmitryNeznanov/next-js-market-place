@@ -4,7 +4,6 @@ import { Suspense } from "react"
 import Filters from "../../components/Filters"
 import Link from "next/link"
 import Item from "@/app/models/Item"
-import { ErrorBoundary } from "next/dist/client/components/error-boundary"
 
 export const metadata: Metadata = {
   title: "Sheen | Shop",

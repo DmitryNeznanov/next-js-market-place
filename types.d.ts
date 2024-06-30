@@ -25,9 +25,11 @@ interface Post {
 interface Item {
   _id: Types.ObjectId
   item: string
+  sizes: string[]
   price: number
-  aboutItem: string
-  description: string
+  about: string
+  description: [{ content: string }]
+  information: [{ content: string }]
   categories: string[]
   img: {
     src: string
@@ -35,4 +37,6 @@ interface Item {
     height: number
     alt: string
   }
+  itemSlider: [{ src: string; width: number; height: number; alt: string }]
+  reviews: [{ name: string; email: string; body: string; rating: number }]
 }

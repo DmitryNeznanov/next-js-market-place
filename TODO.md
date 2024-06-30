@@ -4,7 +4,6 @@
 
 ## Questions ?
 - Split Components folder
-- HQ images
 
 ## Information 
-- tes
+- test

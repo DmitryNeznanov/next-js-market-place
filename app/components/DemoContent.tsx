@@ -1,12 +1,12 @@
 "use client"
 import Image from "next/image"
 
-import img1 from "@/public/img-1.png"
-import img2 from "@/public/img-2.png"
-import img3 from "@/public/img-3.png"
-import img4 from "@/public/img-4.png"
-import img5 from "@/public/img-5.png"
-import img6 from "@/public/img-6.png"
+import img1 from "@/public/bekky-bekks-M0e5fdQYBCM-unsplash 1.png"
+import img2 from "@/public/elnaz-asadi-N1gqDai6A08-unsplash 1.png"
+import img3 from "@/public/andrea-tummons-ZRKFqPn8cdw-unsplash 1.png"
+import img4 from "@/public/jess-bailey-nOeVi8DsN8U-unsplash 1.png"
+import img5 from "@/public/karina-tess-H14pfhlfr24-unsplash 1.png"
+import img6 from "@/public/phil-desforges-KP7p0-DRGbg-unsplash 1.png"
 import Carousel from "./Carousel"
 export default function DemoContent() {
   return (

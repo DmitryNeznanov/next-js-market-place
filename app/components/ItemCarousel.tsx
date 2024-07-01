@@ -33,39 +33,44 @@ export default function ItemCarousel({ data }: { data: Item }) {
   }
 
   return (
-    <div
-      // max-h-[28.25rem]
-      className=" grid grid-cols-[20%_80%] gap-[.75rem] sm:gap-[1.5rem] grid-rows-[25%_25%_25%_25%] grid-flow-col"
-    >
-      {data.itemSlider.map((image, i) => {
-        return (
-          <Image
-            className={`w-full h-full cursor-pointer ${
-              index === i + 1 ? "border-[5px] border-accent box-border" : ""
-            }`}
-            src={image.src}
-            width={image.width}
-            height={image.height}
-            alt={image.alt}
-            priority={true}
-            key={i}
-            onClick={() => {
-              updateIndex(i)
-              setSlide(i)
-            }}
-            id={`${`slide-${i + 1}`}`}
-          />
-        )
-      })}
-      <Image
-        className={`w-full h-full last:row-span-4 `}
-        src={data.img.src}
-        width={data.img.width}
-        height={data.img.height}
-        alt={data.img.alt}
-        priority={true}
-        id="currentSlide"
-      />
+    <div className="flex flex-row gap-[1.5rem]">
+      <div className="flex flex-col gap-[1.5rem] w-[20%]">
+        {data.itemSlider.map((image, i) => {
+          return (
+            <div
+              className="w-[10rem] h-[10rem]"
+              key={i}
+            >
+              <Image
+                className={`cursor-pointer w-full h-full  ${
+                  index === i + 1 ? "" : ""
+                }`}
+                src={image.src}
+                width={image.width}
+                height={image.height}
+                alt={image.alt}
+                priority={true}
+                onClick={() => {
+                  updateIndex(i)
+                  setSlide(i)
+                }}
+                id={`${`slide-${i + 1}`}`}
+              />
+            </div>
+          )
+        })}
+      </div>
+      <div className="w-[80%]">
+        <Image
+          className="w-full h-full"
+          src={data.img.src}
+          width={data.img.width}
+          height={data.img.height}
+          alt={data.img.alt}
+          priority={true}
+          id="currentSlide"
+        />
+      </div>
     </div>
   )
 }

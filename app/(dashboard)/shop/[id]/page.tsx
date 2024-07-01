@@ -38,10 +38,10 @@ export default async function ItemPage({
         fallback={<h2 className="text-[4rem]/[4rem]">Item is loading...</h2>}
       >
         <div className="flex flex-col lg:flex-row gap-y-[2.55rem] lg:gap-y-[0] lg:gap-x-[3.1rem]">
-          <section className="w-full lg:max-w-[60%]">
+          <section className="lg:w-[60%]">
             <ItemCarousel data={safetyData} />
           </section>
-          <section>
+          <section className="lg:w-[40%]">
             <h2 className="capitalize">{data.item}</h2>
             <p className="mt-[1rem] heading-2">{data.price}$</p>
             <div className="mt-[2rem] lg:mt-[4rem]">

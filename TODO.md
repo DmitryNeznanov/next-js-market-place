@@ -1,10 +1,11 @@
 ## Tasks
 - ItemCarousel responsive
 - ItemCarousel active border
-- Update db img properties
+- fix salva.png
 
 ## Questions ?
 - Split Components folder
+- https://tailwindcss.com/docs/flex
 
 ## Information 
 - test

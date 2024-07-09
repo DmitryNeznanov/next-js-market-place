@@ -3,7 +3,6 @@ import StarRating from "@/app/components/StarRating"
 import Tabs from "@/app/components/Tabs"
 import Item from "@/app/models/Item"
 import { Types } from "mongoose"
-import Image from "next/image"
 import { Suspense } from "react"
 
 export async function generateStaticParams() {

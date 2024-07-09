@@ -1,10 +1,9 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import { Suspense } from "react"
-import Filters from "../../components/Filters"
+import Filters from "@/app/components/Filters"
 import Link from "next/link"
 import Item from "@/app/models/Item"
-
 export const metadata: Metadata = {
   title: "Sheen | Shop",
   description: "Shop page",

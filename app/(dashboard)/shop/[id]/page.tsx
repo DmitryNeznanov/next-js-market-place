@@ -3,8 +3,8 @@ import StarRating from "@/app/components/StarRating"
 import Tabs from "@/app/components/Tabs"
 import Item from "@/app/models/Item"
 import { Types } from "mongoose"
+import Link from "next/link"
 import { Suspense } from "react"
-
 export async function generateStaticParams() {
   const data: Item[] = await Item.find()
   return data.map((item: Item) => {
@@ -33,6 +33,15 @@ export default async function ItemPage({
 
   return (
     <section>
+      <div>
+        <Link
+          className="text-accent"
+          href={`/test`}
+        >
+          asasa
+        </Link>
+        <div className="w-[20rem] h-[20rem] bg-accent">test</div>
+      </div>
       <Suspense
         fallback={<h2 className="text-[4rem]/[4rem]">Item is loading...</h2>}
       >

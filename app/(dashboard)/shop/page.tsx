@@ -4,6 +4,7 @@ import { Suspense } from "react"
 import Filters from "@/app/components/Filters"
 import Link from "next/link"
 import Item from "@/app/models/Item"
+import Pagination from "@/app/components/Pagination"
 export const metadata: Metadata = {
   title: "Sheen | Shop",
   description: "Shop page",
@@ -19,6 +20,7 @@ export default async function ShopPage({
   const filteredData = (await Item.find({
     categories: { $all: [`${searchParams.filters}`] },
   })) as Item[]
+
   const itemsCategories: string[] = [
     "technology",
     "interface design",
@@ -27,6 +29,16 @@ export default async function ShopPage({
     "product",
     "feature",
   ]
+
+  const currentPage = 1
+  const itemsPerPage = 3
+  const totalPages = Math.ceil(data.length / itemsPerPage)
+
+  const maxValue = currentPage * itemsPerPage
+  const minValue = maxValue - itemsPerPage
+
+  const currentPageData = data.slice(minValue, maxValue)
+  console.log(totalPages)
 
   const actualData: Item[] =
     searchParams.filters === undefined ? data : filteredData
@@ -72,6 +84,7 @@ export default async function ShopPage({
             )
           })}
         </section>
+        <Pagination />
       </Suspense>
     </section>
   )

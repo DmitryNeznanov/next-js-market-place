@@ -5,6 +5,7 @@ import Item from "@/app/models/Item"
 import { Types } from "mongoose"
 import Link from "next/link"
 import { Suspense } from "react"
+
 export async function generateStaticParams() {
   const data: Item[] = await Item.find()
   return data.map((item: Item) => {

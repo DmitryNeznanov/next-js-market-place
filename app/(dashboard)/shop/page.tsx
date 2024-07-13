@@ -84,7 +84,7 @@ export default async function ShopPage({
             )
           })}
         </section>
-        <Pagination />
+        <Pagination totalPages={totalPages} />
       </Suspense>
     </section>
   )

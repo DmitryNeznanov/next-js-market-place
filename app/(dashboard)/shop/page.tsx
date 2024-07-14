@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function ShopPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined }
+  searchParams: { filters: string; page: number }
 }) {
   const data = (await Item.find()) as Item[]
 
@@ -30,16 +30,18 @@ export default async function ShopPage({
     "feature",
   ]
 
-  const currentPage = 1
   const itemsPerPage = 3
   const totalPages = Math.ceil(data.length / itemsPerPage)
 
-  const maxValue = currentPage * itemsPerPage
-  const minValue = maxValue - itemsPerPage
+  const currentPage = searchParams.page
 
-  const currentPageData = data.slice(minValue, maxValue)
-  console.log(totalPages)
-
+  function paginate() {
+    const maxValue = currentPage * itemsPerPage
+    const minValue = maxValue - itemsPerPage
+    const currentPageData = data.slice(minValue, maxValue)
+    return currentPageData
+  }
+  const testData = paginate()
   const actualData: Item[] =
     searchParams.filters === undefined ? data : filteredData
 

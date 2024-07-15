@@ -50,7 +50,8 @@ export default function Navigation({
               >
                 <Link
                   className={`text-xl capitalize ${
-                    pathName === link
+                    pathName ===
+                    link.replace(`/${pathName}$(?= )([ A-Za-z0-9])+/`, "")
                       ? "text-accent"
                       : "text-primary hover:text-gray-light transition-[hover]"
                   }`}

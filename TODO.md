@@ -1,6 +1,6 @@
 ## Tasks
 - Modal
-- Pagination
+- links in blog
 - Older works button
 - Change layout 
 
@@ -13,20 +13,10 @@
 - https://nextjs.org/docs/app/building-your-application/routing/route-handlers
 - https://nextjs.org/docs/app/api-reference/file-conventions/default
 https://tailwindcss.com/docs/size
-
+- regex
 
 
 
 
 
 ## Draft
-
-
-first 9 items. onClick fetch next 9 items in db.
-algorithm: 
-currentPage = 2 * 9 = 18 
-itemsPerPage = 9
-maxValue = currentPage * itemsPerPage
-minValue = maxValue - itemsPerPage
-than 
-slice range minValue - (maxValue - 1)

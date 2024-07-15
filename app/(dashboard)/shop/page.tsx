@@ -30,20 +30,21 @@ export default async function ShopPage({
     "feature",
   ]
 
-  const itemsPerPage = 3
+  const itemsPerPage = 4
   const totalPages = Math.ceil(data.length / itemsPerPage)
 
   const currentPage = searchParams.page
 
-  function paginate() {
+  function paginate(data: any[]) {
     const maxValue = currentPage * itemsPerPage
     const minValue = maxValue - itemsPerPage
     const currentPageData = data.slice(minValue, maxValue)
     return currentPageData
   }
-  const testData = paginate()
   const actualData: Item[] =
     searchParams.filters === undefined ? data : filteredData
+
+  const testData = paginate(actualData)
 
   return (
     <section>
@@ -52,25 +53,19 @@ export default async function ShopPage({
       <Suspense
         fallback={<h2 className="text-[4rem]/[4rem]">Items is loading...</h2>}
       >
-        <section
-          className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
-            actualData.length <= 4
-              ? "columns-2"
-              : "columns-1 sm:columns-2 lg:columns-3"
-          }`}
-        >
-          {actualData.map((item: Item) => {
+        <section className="flex flex-row flex-wrap justify-between lg:justify-between lg:flex-wrap gap-y-[2rem] lg:gap-y-[4rem]">
+          {testData.map((item: Item) => {
             return (
               <article
-                className="mb-[3.125rem] max-w-full w-full inline-block"
+                className="w-full max-w-[300px] lg:max-w-[540px]"
                 key={item._id}
               >
                 <Link
                   className="group"
-                  href={`/shop/${item._id}`}
+                  href={`/shop?page=1/${item._id}`}
                 >
                   <Image
-                    className="w-full"
+                    className="size-full max-w-[540px] lg:max-h-[540px]"
                     src={item.img.src}
                     width={item.img.width}
                     height={item.img.height}

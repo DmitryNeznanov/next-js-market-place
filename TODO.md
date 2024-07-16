@@ -1,13 +1,24 @@
 ## Tasks
 - Modal
-- links in blog
+- Links in blog
 - Older works button
-- Change layout 
+- Fix navigation
+
+
+- DB
+  - Fix db ItemCaruosel
+  - Change for new layout
+ 
+- Pagination
+  - Pagination dynamic
+  - Page count dynamic
+  - Last/First page UI
 
 ## Questions ?
 - Split Components folder
 - Comments
 - Links
+- Sort by date in BlogPage
 
 ## Information 
 - https://nextjs.org/docs/app/building-your-application/routing/route-handlers

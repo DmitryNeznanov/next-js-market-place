@@ -39,7 +39,7 @@ export default function Navigation({
           <ul className="flex flex-row gap-x-[2rem] lg:gap-x-[4rem]">
             {[
               ["portfolio", "/"],
-              ["shop", "/shop"],
+              ["shop", "/shop?page=1"],
               ["about", "/about"],
               ["blog", "/blog"],
               ["contact", "/contact"],

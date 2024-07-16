@@ -34,23 +34,17 @@ export default async function HomePage({
           I’m a designer based in San Francisco.
         </p>
       </article>
-      <div className="mt-[4.875rem] lg:mt-[8.875rem]">
+      <div className="mt-[1.3rem] lg:mt-[4.6rem]">
         <Filters categories={itemCategories} />
       </div>
       <Suspense
         fallback={<h2 className="text-[4rem]/[4rem]">Items is loading...</h2>}
       >
-        <section
-          className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
-            actualData.length <= 4
-              ? "columns-2"
-              : "columns-1 sm:columns-2 lg:columns-3"
-          }`}
-        >
+        <section className="flex-layout">
           {actualData.map((item: Portfolio) => {
             return (
               <article
-                className="mb-[3.125rem] max-w-full w-full inline-block"
+                className="sm:w-[44.55%]"
                 key={item._id}
               >
                 <Link
@@ -58,7 +52,7 @@ export default async function HomePage({
                   href={`/portfolio/${item._id}`}
                 >
                   <Image
-                    className="w-full"
+                    className=" h-screen w-screen max-h-[18.75rem] lg:max-h-[25rem] xl:max-h-[32.75rem]"
                     src={item.img.src}
                     width={item.img.width}
                     height={item.img.height}
@@ -76,6 +70,9 @@ export default async function HomePage({
             )
           })}
         </section>
+        <div className="mt-[3rem] lg:mt-[6rem]">
+          {/* <Pagination totalPages={totalPages} /> */}
+        </div>
       </Suspense>
     </section>
   )

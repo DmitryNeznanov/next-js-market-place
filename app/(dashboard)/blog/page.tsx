@@ -3,30 +3,40 @@ import Image from "next/image"
 import { Suspense } from "react"
 import Link from "next/link"
 import Post from "@/app/models/Post"
+import Filters from "@/app/components/Filters"
 
 export const metadata: Metadata = {
   title: "Sheen | Blog",
   description: "Blog page",
 }
-export default async function BlogPage() {
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
+  const filteredData = (await Post.find({
+    categories: { $all: [`${searchParams.filters}`] },
+  })) as Post[]
   const data = (await Post.find()) as Post[]
+
+  const actualData: Post[] =
+    searchParams.filters === undefined ? data : filteredData
+
+  const blogCategories = ["digital", "image", "modern"]
   return (
     <section>
       <h2>Blog</h2>
+      <div className="mt-[1.3rem] lg:mt-[4.6rem]">
+        <Filters categories={blogCategories} />
+      </div>
       <Suspense
         fallback={<h2 className="text-[4rem]/[4rem]">Posts is loading...</h2>}
       >
-        <section
-          className={`mt-[2rem] lg:mt-[4rem] gap-x-[3.125rem] ${
-            data.length <= 4
-              ? "columns-2"
-              : "columns-1 sm:columns-2 lg:columns-3"
-          }`}
-        >
-          {data.map((post: Post) => {
+        <section className="flex-layout">
+          {actualData.map((post: Post) => {
             return (
               <article
-                className="mb-[3.125rem] max-w-full w-full inline-block"
+                className="sm:w-[44.55%]"
                 key={post._id}
               >
                 <Link
@@ -34,7 +44,7 @@ export default async function BlogPage() {
                   href={`/blog/${post._id}`}
                 >
                   <Image
-                    className="w-full"
+                    className=" h-screen w-screen max-h-[18.75rem] lg:max-h-[25rem] xl:max-h-[32.75rem]"
                     src={post.img.src}
                     width={post.img.width}
                     height={post.img.height}
@@ -53,7 +63,7 @@ export default async function BlogPage() {
                       </time>
                     </p>
                     <div className="text-gray-light">/</div>
-                    <p className="accent-underline group-hover:no-underline">
+                    <p className="group-hover:accent-underline">
                       {post.categories}
                     </p>
                   </div>

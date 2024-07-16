@@ -62,7 +62,7 @@ export default function ItemCarousel({ data }: { data: Item }) {
           )
         })}
       </div>
-      <div className="">
+      <div>
         <Image
           className="w-screen sm:h-screen sm:max-h-[34.375rem]"
           src={data.img.src}

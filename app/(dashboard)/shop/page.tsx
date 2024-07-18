@@ -5,6 +5,7 @@ import Filters from "@/app/components/Filters"
 import Link from "next/link"
 import Item from "@/app/models/Item"
 import Pagination from "@/app/components/Pagination"
+import { log } from "console"
 export const metadata: Metadata = {
   title: "Sheen | Shop",
   description: "Shop page",
@@ -31,7 +32,6 @@ export default async function ShopPage({
   ]
 
   const itemsPerPage = 4
-  const totalPages = Math.ceil(data.length / itemsPerPage)
 
   const currentPage = searchParams.page
 
@@ -41,10 +41,12 @@ export default async function ShopPage({
     const currentPageData = data.slice(minValue, maxValue)
     return currentPageData
   }
-  const actualData: Item[] =
+
+  const unsortedData: Item[] =
     searchParams.filters === undefined ? data : filteredData
 
-  const testData = paginate(actualData)
+  const currentData = paginate(unsortedData)
+  const totalPages = Math.ceil(unsortedData.length / itemsPerPage)
 
   return (
     <section>
@@ -56,7 +58,7 @@ export default async function ShopPage({
         fallback={<h2 className="text-[4rem]/[4rem]">Items is loading...</h2>}
       >
         <section className="flex-layout">
-          {testData.map((item: Item) => {
+          {currentData.map((item: Item) => {
             return (
               <article
                 className="sm:w-[44.55%]"

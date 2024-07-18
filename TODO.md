@@ -4,16 +4,10 @@
 - Older works button
 - Fix navigation
 
-
 - DB
   - Fix db ItemCaruosel
   - Change for new layout
  
-- Pagination
-  - Pagination dynamic
-  - Page count dynamic
-  - Last/First page UI
-
 ## Questions ?
 - Split Components folder
 - Comments

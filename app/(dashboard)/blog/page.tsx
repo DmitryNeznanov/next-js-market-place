@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import Link from "next/link"
 import Post from "@/app/models/Post"
 import Filters from "@/app/components/Filters"
-
+import Pagination from "@/app/components/Pagination"
 export const metadata: Metadata = {
   title: "Sheen | Blog",
   description: "Blog page",
@@ -12,17 +12,32 @@ export const metadata: Metadata = {
 export default async function BlogPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined }
+  searchParams: { filters: string; page: number }
 }) {
   const filteredData = (await Post.find({
     categories: { $all: [`${searchParams.filters}`] },
   })) as Post[]
   const data = (await Post.find()) as Post[]
 
-  const actualData: Post[] =
+  const itemsPerPage = 4
+
+  const currentPage = searchParams.page
+
+  function paginate(data: any[]) {
+    const maxValue = currentPage * itemsPerPage
+    const minValue = maxValue - itemsPerPage
+    const currentPageData = data.slice(minValue, maxValue)
+    return currentPageData
+  }
+
+  const unsortedData: Post[] =
     searchParams.filters === undefined ? data : filteredData
 
+  const currentData = paginate(unsortedData)
+  const totalPages = Math.ceil(unsortedData.length / itemsPerPage)
+
   const blogCategories = ["digital", "image", "modern"]
+
   return (
     <section>
       <h2>Blog</h2>
@@ -33,7 +48,7 @@ export default async function BlogPage({
         fallback={<h2 className="text-[4rem]/[4rem]">Posts is loading...</h2>}
       >
         <section className="flex-layout">
-          {actualData.map((post: Post) => {
+          {currentData.map((post: Post) => {
             return (
               <article
                 className="sm:w-[44.55%]"
@@ -72,6 +87,9 @@ export default async function BlogPage({
             )
           })}
         </section>
+        <div className="mt-[3rem] lg:mt-[6rem]">
+          <Pagination totalPages={totalPages} />
+        </div>
       </Suspense>
     </section>
   )

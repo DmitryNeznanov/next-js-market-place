@@ -70,8 +70,13 @@ export default async function HomePage({
             )
           })}
         </section>
-        <div className="mt-[3rem] lg:mt-[6rem]">
-          {/* <Pagination totalPages={totalPages} /> */}
+        <div className="mt-[4.5rem] lg:mt-[6rem] flex justify-center">
+          <Link
+            className="button-primary"
+            href="/blog?page=1"
+          >
+            older works
+          </Link>
         </div>
       </Suspense>
     </section>

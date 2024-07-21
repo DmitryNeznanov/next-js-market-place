@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { v4 as uuidv4 } from "uuid"
 import DarkModeSwitcher from "./DarkModeSwitcher"
 
 export default function Navigation({
@@ -41,12 +40,12 @@ export default function Navigation({
               ["portfolio", "/"],
               ["shop", "/shop?page=1"],
               ["about", "/about"],
-              ["blog", "/blog"],
+              ["blog", "/blog?page=1"],
               ["contact", "/contact"],
-            ].map(([title, link]) => (
+            ].map(([title, link], i) => (
               <li
                 className=""
-                key={uuidv4()}
+                key={i}
               >
                 <Link
                   className={`text-xl capitalize ${

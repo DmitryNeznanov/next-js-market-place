@@ -5,7 +5,7 @@ import Filters from "@/app/components/Filters"
 import Link from "next/link"
 import Item from "@/app/models/Item"
 import Pagination from "@/app/components/Pagination"
-import { log } from "console"
+
 export const metadata: Metadata = {
   title: "Sheen | Shop",
   description: "Shop page",

@@ -1,17 +1,16 @@
 ## Tasks
 - Modal
-- Links in blog
-- Older works button
 - Fix navigation
+- Hover animation
 
 - DB
   - Fix db ItemCaruosel
   - Change for new layout
+  - More tags for Blog items
  
 ## Questions ?
 - Split Components folder
 - Comments
-- Links
 - Sort by date in BlogPage
 
 ## Information 

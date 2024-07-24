@@ -14,8 +14,8 @@ export default function Tabs({ data }: { data: Item }) {
       <div className="flex flex-row sm:gap-x-[6rem] border-b border-gray">
         {[
           ["description"],
-          ["aditional information"],
-          [`reviews(${data.reviews.length})`],
+          ["additional information"],
+          [`reviews (${data.reviews.length})`],
         ].map((tab, i) => {
           return (
             <button

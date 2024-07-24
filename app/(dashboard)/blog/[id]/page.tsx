@@ -47,7 +47,24 @@ export default async function PostPage({
                 </time>
               </p>
               <span className="text-gray-light">/</span>
-              <p className="accent-underline">{data.categories}</p>
+              <p>
+                {data.categories.map((category, i) => {
+                  return (
+                    <span
+                      className="inline"
+                      key={i}
+                    >
+                      <Link
+                        href={`/blog?page=1&filters=${category}`}
+                        className="accent-underline hover:no-underline"
+                      >
+                        {category}
+                      </Link>
+                      <span>&nbsp;</span>
+                    </span>
+                  )
+                })}
+              </p>
             </div>
           </hgroup>
           <Image
@@ -74,11 +91,11 @@ export default async function PostPage({
               >
                 <Link
                   href={`/blog?page=1&filters=${category}`}
-                  className="accent-underline"
+                  className="accent-underline hover:no-underline"
                 >
                   {category}
                 </Link>
-                <span>&nbsp;</span>
+                <span>&emsp;</span>
               </span>
             )
           })}

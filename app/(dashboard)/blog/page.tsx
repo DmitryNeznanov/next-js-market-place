@@ -17,7 +17,7 @@ export default async function BlogPage({
   const filteredData = (await Post.find({
     categories: { $all: [`${searchParams.filters}`] },
   })) as Post[]
-  const data = (await Post.find()) as Post[]
+  const data = (await Post.find().sort({ date: -1 })) as Post[]
 
   const itemsPerPage = 4
 
@@ -54,35 +54,41 @@ export default async function BlogPage({
                 className="sm:w-[44.55%]"
                 key={post._id}
               >
-                <Link
-                  className="group"
-                  href={`/blog/${post._id}`}
-                >
-                  <Image
-                    className=" h-screen w-screen max-h-[18.75rem] lg:max-h-[25rem] xl:max-h-[32.75rem]"
-                    src={post.img.src}
-                    width={post.img.width}
-                    height={post.img.height}
-                    alt={post.img.alt}
-                    priority={true}
-                  ></Image>
-                  <h3 className="mt-[1.5rem]">{post.title}</h3>
-                  <div className="mt-[1.2rem] flex flex-row gap-x-[1.4rem] uppercase">
-                    <p>
-                      <time dateTime={`${post.date}`}>
-                        {new Date(post.date).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
-                      </time>
-                    </p>
-                    <div className="text-gray-light">/</div>
-                    <p className="group-hover:accent-underline">
-                      {post.categories}
-                    </p>
+                <Link href={`/blog/${post._id}`}>
+                  <div className="group">
+                    <Image
+                      className="h-screen w-screen max-h-[18.75rem] lg:max-h-[25rem] xl:max-h-[32.75rem]"
+                      src={post.img.src}
+                      width={post.img.width}
+                      height={post.img.height}
+                      alt={post.img.alt}
+                      priority={true}
+                    ></Image>
+                    <h3 className="mt-[1.5rem] group-hover:accent-underline">
+                      {post.title}
+                    </h3>
                   </div>
                 </Link>
+                <div className="mt-[1.2rem] flex flex-row gap-x-[1.4rem] uppercase">
+                  <p>
+                    <time dateTime={`${post.date}`}>
+                      {new Date(post.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </time>
+                  </p>
+                  <div className="text-gray-light">/</div>
+                  <p>
+                    <Link
+                      href={`blog?page=1&filters=${post.categories[0]}`}
+                      className="hover:accent-underline"
+                    >
+                      {post.categories[0]}
+                    </Link>
+                  </p>
+                </div>
               </article>
             )
           })}

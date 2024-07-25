@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 import DarkModeSwitcher from "./DarkModeSwitcher"
 
 export default function Navigation({
@@ -11,6 +11,12 @@ export default function Navigation({
   toggleSearch: Function
 }) {
   const pathName = usePathname()
+  const params = useSearchParams()
+  const test = () => {
+    const test = pathName + params
+    return test
+  }
+  console.log("/about" + params)
 
   return (
     <nav className="bg-background">
@@ -37,20 +43,16 @@ export default function Navigation({
         >
           <ul className="flex flex-row gap-x-[2rem] lg:gap-x-[4rem]">
             {[
-              ["portfolio", "/"],
-              ["shop", "/shop?page=1"],
-              ["about", "/about"],
-              ["blog", "/blog?page=1"],
-              ["contact", "/contact"],
+              ["portfolio", "/" + params],
+              ["shop", "/shop" + params],
+              ["about", "/about" + params],
+              ["blog", "/blog?page=1" + params],
+              ["contact", "/contact" + params],
             ].map(([title, link], i) => (
-              <li
-                className=""
-                key={i}
-              >
+              <li key={i}>
                 <Link
                   className={`text-xl capitalize ${
-                    pathName ===
-                    link.replace(`/${pathName}$(?= )([ A-Za-z0-9])+/`, "")
+                    pathName === link
                       ? "text-accent"
                       : "text-primary hover:text-gray-light transition-[hover]"
                   }`}

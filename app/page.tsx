@@ -4,7 +4,6 @@ import { Suspense } from "react"
 import Filters from "./components/Filters"
 import Link from "next/link"
 import Portfolio from "./models/Portfolio"
-import Pagination from "./components/Pagination"
 
 export const metadata: Metadata = {
   title: "Sheen | Home",
@@ -14,28 +13,16 @@ export default async function HomePage({
   searchParams,
 }: {
   searchParams: { filters: string; page: number }
-  params: any
 }) {
   const data = (await Portfolio.find()) as Portfolio[]
   const filteredData = (await Portfolio.find({
     categories: { $all: [`${searchParams.filters}`] },
   })) as Portfolio[]
 
-  const itemsPerPage = 4
-  const currentPage = searchParams.page
-
-  function paginate(data: any[]) {
-    const maxValue = currentPage * itemsPerPage
-    const minValue = maxValue - itemsPerPage
-    const currentPageData = data.slice(minValue, maxValue)
-    return currentPageData
-  }
-
   const unsortedData: Portfolio[] =
     searchParams.filters === undefined ? data : filteredData
 
-  const currentData = paginate(unsortedData)
-  const totalPages = Math.ceil(unsortedData.length / itemsPerPage)
+  const currentData = unsortedData
 
   const itemCategories: string[] = ["photo", "photography"]
 
@@ -47,7 +34,7 @@ export default async function HomePage({
           I’m a designer based in San Francisco.
         </p>
       </article>
-      <div className="mt-[1.3rem] lg:mt-[4.6rem]">
+      <div className="mt-[4.4rem] lg:mt-[8.875rem]">
         <Filters categories={itemCategories} />
       </div>
       <Suspense
@@ -57,7 +44,7 @@ export default async function HomePage({
           className="flex-layout"
           id="portfolio"
         >
-          {currentData.map((item: Portfolio) => {
+          {currentData.slice(0, 4).map((item: Portfolio) => {
             return (
               <article
                 className="sm:w-[44.55%]"
@@ -86,11 +73,6 @@ export default async function HomePage({
             )
           })}
         </section>
-        <div className="mt-[4.5rem] lg:mt-[6rem] flex justify-center">
-          <div className="mt-[3rem] lg:mt-[6rem]">
-            <Pagination totalPages={totalPages} />
-          </div>
-        </div>
       </Suspense>
     </section>
   )

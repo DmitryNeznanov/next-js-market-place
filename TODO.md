@@ -1,6 +1,5 @@
 ## Tasks
 - Fix navigation
-- Redirects
  
 ## Questions ?
 - Split Components folder

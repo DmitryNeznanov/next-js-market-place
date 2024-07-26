@@ -1,7 +1,7 @@
 "use client"
-import img2 from "@/public/img-2.png"
-import img5 from "@/public/img-5.png"
-import carousel1 from "@/public/caruosel.png"
+import img1 from "@/public/andrea-tummons-ZRKFqPn8cdw-unsplash 1.png"
+import img2 from "@/public/karina-tess-H14pfhlfr24-unsplash 1.png"
+import img3 from "@/public/andrea-tummons-ZRKFqPn8cdw-unsplash 1.png"
 import Image from "next/image"
 import { useState } from "react"
 
@@ -13,9 +13,9 @@ export default function Carousel() {
   }
 
   const data = [
-    [carousel1, "img1"],
+    [img1, "img1"],
     [img2, "img2"],
-    [img5, "img3"],
+    [img3, "img3"],
   ]
   return (
     <section>

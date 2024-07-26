@@ -64,7 +64,7 @@ export default function HamburgerMenu({
 					<ul className="flex flex-col gap-y-[1.8rem] text-center">
 						{[
 							['portfolio', '/'],
-							['shop', '/shop'],
+							['shop', '/shop?page=1'],
 							['about', '/about'],
 							['blog', '/blog'],
 							['contact', '/contact'],

@@ -84,4 +84,7 @@
   .li-ol {
     @apply pl-[.7rem] marker:text-primary list-inside;
   }
+  .flex-layout {
+    @apply mt-[2.5rem] flex flex-col sm:flex-row flex-wrap justify-between gap-y-[2rem] lg:gap-y-[4rem];
+  }
 }

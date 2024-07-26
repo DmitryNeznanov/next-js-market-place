@@ -46,12 +46,14 @@ export default function Filters({ categories }: { categories: string[] }) {
         <h3 className="mt-[1.5rem] lg:mt-[2.5rem] text-base text-gray-light uppercase">
           filters
         </h3>
-        <ul className="mt-[1rem] lg:mt-[2.5rem] flex flex-row gap-x-[2rem] lg:gap-x-[4rem] capitalize">
+        <ul className="mt-[1rem] lg:mt-[2.5rem] flex gap-x-[2rem] lg:gap-x-[4rem] capitalize">
           {categories.map((category: string, index: number) => {
             return (
               <li
-                className={`text-base cursor-pointer ${
-                  filter === category ? "text-primary" : "text-gray-light"
+                className={`text-base cursor-pointer  ${
+                  filter === category
+                    ? "text-accent"
+                    : "text-gray-light hover:text-primary"
                 }`}
                 onClick={() => {
                   handleFilter(category.toLowerCase())

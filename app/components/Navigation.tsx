@@ -1,8 +1,7 @@
 "use client"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { v4 as uuidv4 } from "uuid"
 import DarkModeSwitcher from "./DarkModeSwitcher"
+import { usePathname } from "next/navigation"
 
 export default function Navigation({
   toggleHamburgerMenu,
@@ -39,22 +38,21 @@ export default function Navigation({
           <ul className="flex flex-row gap-x-[2rem] lg:gap-x-[4rem]">
             {[
               ["portfolio", "/"],
-              ["shop", "/shop"],
+              ["shop", "/shop?page=1"],
               ["about", "/about"],
-              ["blog", "/blog"],
+              ["blog", "/blog?page=1"],
               ["contact", "/contact"],
-            ].map(([title, link]) => (
-              <li
-                className=""
-                key={uuidv4()}
-              >
+            ].map(([title, link], i) => (
+              <li key={i}>
                 <Link
                   className={`text-xl capitalize ${
-                    pathName === link
+                    pathName.match(title) ||
+                    (link.length === 1 && pathName.length === 1)
                       ? "text-accent"
                       : "text-primary hover:text-gray-light transition-[hover]"
                   }`}
                   href={link}
+                  id={i.toString()}
                 >
                   {title}
                 </Link>

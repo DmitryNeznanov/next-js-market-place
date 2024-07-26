@@ -1,10 +1,16 @@
 ## Tasks
-- ItemCarousel responsive
-- ItemCarousel active border
-
+- Fix navigation
+ 
 ## Questions ?
 - Split Components folder
-- HQ images
+- Comments
+- Modal
 
 ## Information 
-- test 
+- https://nextjs.org/docs/app/building-your-application/routing/route-handlers
+- https://nextjs.org/docs/app/api-reference/file-conventions/default
+https://tailwindcss.com/docs/size
+- regex
+
+
+## Draft

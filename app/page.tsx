@@ -15,16 +15,6 @@ export default async function HomePage({
   searchParams: { filters: string; page: number }
 }) {
   const data = (await Portfolio.find()) as Portfolio[]
-  const filteredData = (await Portfolio.find({
-    categories: { $all: [`${searchParams.filters}`] },
-  })) as Portfolio[]
-
-  const unsortedData: Portfolio[] =
-    searchParams.filters === undefined ? data : filteredData
-
-  const currentData = unsortedData
-
-  const itemCategories: string[] = ["photo", "photography"]
 
   return (
     <section>
@@ -34,17 +24,17 @@ export default async function HomePage({
           I’m a designer based in San Francisco.
         </p>
       </article>
-      <div className="mt-[4.4rem] lg:mt-[8.875rem]">
+      {/* <div className="mt-[4.4rem] lg:mt-[8.875rem]">
         <Filters categories={itemCategories} />
-      </div>
+      </div> */}
       <Suspense
         fallback={<h2 className="text-[4rem]/[4rem]">Items is loading...</h2>}
       >
         <section
-          className="flex-layout"
+          className="mt-[3.375rem] lg:mt-[10.375rem] flex-layout"
           id="portfolio"
         >
-          {currentData.slice(0, 4).map((item: Portfolio) => {
+          {data.slice(0, 4).map((item: Portfolio) => {
             return (
               <article
                 className="sm:w-[44.55%]"

@@ -20,7 +20,9 @@ export default function NotFound() {
           </Link>
         </div>
       </article>
-      <Links />
+      <div className="mt-[1.5rem]">
+        <Links />
+      </div>
     </section>
   )
 }

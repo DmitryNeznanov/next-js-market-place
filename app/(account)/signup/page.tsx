@@ -1,3 +1,4 @@
+import { signup } from "@/app/actions/auth"
 import { Metadata } from "next"
 import Link from "next/link"
 export const metadata: Metadata = {
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
   description: "Registration page",
 }
 
-export default function RegistrationPage() {
+export default function SignupPage() {
   return (
     <>
       <article className="flex flex-col max-w-[23.563rem]">
@@ -32,20 +33,23 @@ export default function RegistrationPage() {
             className="input-primary"
             placeholder="Email Address"
             type="email"
+            name="email"
             required
           />
           <input
             className="input-primary"
             placeholder="Your Password"
             type="password"
+            name="password"
             required
           />
         </div>
-        <input
+        <button
           className="w-full mt-[2rem] lg:mt-[4rem] button-primary"
           type="submit"
-          value="Sign in"
-        />
+        >
+          Sign Up
+        </button>
         <p className="max-w-[17.375rem] mt-[1.5rem] lg:mt-[3rem] mx-auto text-center text-sm">
           By creating an account, you agree to the{" "}
           <Link

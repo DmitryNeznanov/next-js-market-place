@@ -1,10 +1,6 @@
 ## Tasks
-- Fix navigation
  
 ## Questions ?
-- Split Components folder
-- Comments
-- Modal
 
 ## Information 
 - https://nextjs.org/docs/app/building-your-application/routing/route-handlers

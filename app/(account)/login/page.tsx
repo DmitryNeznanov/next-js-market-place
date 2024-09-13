@@ -23,12 +23,14 @@ export default async function LoginPage() {
             className="input-primary"
             placeholder="Email Address"
             type="email"
+            name="email"
             required
           />
           <input
             className="input-primary"
             placeholder="Your Password"
             type="password"
+            name="password"
             required
           />
         </div>

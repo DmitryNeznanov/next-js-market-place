@@ -1,5 +1,6 @@
+"use server"
 import { FormState, SignupFormSchema } from "../lib/definations"
-import User from "@/app/models/Item"
+import User from "@/app/models/User"
 export async function signup(state: FormState, formData: FormData) {
   const validatedFeilds = SignupFormSchema.safeParse({
     email: formData.get("email"),
@@ -10,8 +11,8 @@ export async function signup(state: FormState, formData: FormData) {
       errors: validatedFeilds.error.flatten().fieldErrors,
     }
   }
-  // await User.create({
-  //   email: validatedFeilds.email,
-  //   password: validatedFeilds.password,
-  // })
+  await User.create({
+    email: validatedFeilds.data.email,
+    password: validatedFeilds.data.password,
+  })
 }

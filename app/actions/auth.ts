@@ -11,8 +11,14 @@ export async function signup(state: FormState, formData: FormData) {
       errors: validatedFeilds.error.flatten().fieldErrors,
     }
   }
-  await User.create({
+  const users = await User.find({
     email: validatedFeilds.data.email,
-    password: validatedFeilds.data.password,
   })
+
+  if (users.length === 0) {
+    await User.create({
+      email: validatedFeilds.data.email,
+      password: validatedFeilds.data.password,
+    })
+  } else console.log("Email already registered")
 }

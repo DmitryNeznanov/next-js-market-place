@@ -5,34 +5,51 @@ import { useFormState, useFormStatus } from "react-dom"
 
 export default function SignupForm() {
   const [state, action] = useFormState(signup, undefined)
+  const { pending } = useFormStatus()
+
   return (
     <section>
       <form action={action}>
-        <div className="flex flex-col gap-y-[2rem] lg:gap-y-[4rem]">
+        <div className="flex flex-col">
+          {state?.errors?.email && (
+            <p className="text-error">{state.errors.email}</p>
+          )}
           <input
-            className="input-primary"
-            placeholder="Email Address"
+            className="input-primary [user-valid:bg-error] "
+            type="email"
             name="email"
+            placeholder="Email Address"
             required
           />
-          {state?.errors?.email && <p>{state.errors.email}</p>}
           <input
-            className="input-primary"
-            placeholder="Your Password"
+            className="mt-[2rem] lg:mt-[4rem] input-primary"
+            type="password"
             name="password"
+            placeholder="Your Password"
             required
           />
           {state?.errors?.password && (
             <div>
-              <p>Password must:</p>
+              <p className="mt-[1rem] ">Password must:</p>
               <ul>
                 {state.errors.password.map((error) => (
-                  <li key={error}>- {error}</li>
+                  <li
+                    className="text-error"
+                    key={error}
+                  >
+                    - {error}
+                  </li>
                 ))}
               </ul>
             </div>
           )}
-          <SubmitButton />
+          <button
+            className="w-full mt-[4rem] button-primary"
+            disabled={pending}
+            type="submit"
+          >
+            Sign Up
+          </button>
         </div>
       </form>
       <p className="max-w-[17.375rem] mt-[1.5rem] lg:mt-[3rem] mx-auto text-center text-sm">
@@ -52,17 +69,5 @@ export default function SignupForm() {
         </Link>
       </p>
     </section>
-  )
-}
-function SubmitButton() {
-  const { pending } = useFormStatus()
-  return (
-    <button
-      className="w-full button-primary"
-      disabled={pending}
-      type="submit"
-    >
-      Sign Up
-    </button>
   )
 }

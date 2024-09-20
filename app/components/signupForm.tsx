@@ -11,16 +11,17 @@ export default function SignupForm() {
     <section>
       <form action={action}>
         <div className="flex flex-col">
-          {state?.errors?.email && (
-            <p className="text-error">{state.errors.email}</p>
-          )}
           <input
-            className="input-primary [user-valid:bg-error] "
+            className=" input-primary [user-valid:bg-error] "
             type="email"
             name="email"
             placeholder="Email Address"
             required
           />
+          {state?.errors?.email && (
+            <p className="mt-[1rem] text-error">{state.errors.email}</p>
+          )}
+
           <input
             className="mt-[2rem] lg:mt-[4rem] input-primary"
             type="password"

@@ -1,11 +1,11 @@
-"use client"
 import SignupForm from "@/app/components/signupForm"
-// import { Metadata } from "next"
+import { Metadata } from "next"
 import Link from "next/link"
-// export const metadata: Metadata = {
-//   title: "Sheen | Registration",
-//   description: "Signup page",
-// }
+
+export const metadata: Metadata = {
+  title: "Sheen | Registration",
+  description: "Signup page",
+}
 export default function SignupPage() {
   return (
     <>

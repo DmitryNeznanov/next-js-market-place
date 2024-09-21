@@ -1,6 +1,8 @@
 "use server"
 import { FormState, SignupFormSchema } from "../lib/definations"
 import User from "@/app/models/User"
+import bcrypt from "bcrypt"
+
 export async function signup(state: FormState, formData: FormData) {
   const validatedFeilds = SignupFormSchema.safeParse({
     email: formData.get("email"),
@@ -11,14 +13,19 @@ export async function signup(state: FormState, formData: FormData) {
       errors: validatedFeilds.error.flatten().fieldErrors,
     }
   }
+  const { email, password } = validatedFeilds.data
+
+  const hasedPassword = await bcrypt.hash(password, 10)
   const users = await User.find({
-    email: validatedFeilds.data.email,
+    email: email,
   })
+
+  console.log(users)
 
   if (users.length === 0) {
     await User.create({
-      email: validatedFeilds.data.email,
-      password: validatedFeilds.data.password,
+      email: email,
+      password: hasedPassword,
     })
   } else console.log("Email already registered")
 }

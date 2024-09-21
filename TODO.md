@@ -1,8 +1,7 @@
 ## Tasks
 
-- Add already exist sort 
-- Fix input focus
-
+- Add already exist sort / fromdata get ?
+- 
 ## Questions ?
 
 ## Information 
@@ -13,3 +12,6 @@ https://tailwindcss.com/docs/size
 
 
 ## Draft
+
+- To improve the user experience, you may want to check for duplicate emails or usernames earlier in the registration flow. For example, as the user types in a username or the input field loses focus. This can help prevent unnecessary form submissions and provide immediate feedback to the user. You can debounce requests with libraries such as use-debounce to manage the frequency of these checks.
+- https://www.npmjs.com/package/use-debounce

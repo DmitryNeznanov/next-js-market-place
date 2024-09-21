@@ -12,7 +12,7 @@ export default function SignupForm() {
       <form action={action}>
         <div className="flex flex-col">
           <input
-            className=" input-primary [user-valid:bg-error] "
+            className="input-primary [user-valid:bg-error]"
             type="email"
             name="email"
             placeholder="Email Address"

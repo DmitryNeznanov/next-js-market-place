@@ -4,6 +4,9 @@
 - 
 ## Questions ?
 
+- encrypt session ????
+- TS for mngoose Schemas?
+
 ## Information 
 - https://nextjs.org/docs/app/building-your-application/routing/route-handlers
 - https://nextjs.org/docs/app/api-reference/file-conventions/default

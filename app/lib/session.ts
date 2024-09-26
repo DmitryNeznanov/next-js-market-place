@@ -3,6 +3,9 @@ import Session from "../models/session"
 import User from "../models/User"
 export async function createSession(sessionId: any) {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+  // console.log(Date.now)
+  // console.log(expiresAt)
+
   const newUser = await User.findById(sessionId)
   const { _id, email, password } = newUser
 

@@ -1,4 +1,4 @@
-import SignupForm from "@/app/components/signupForm"
+import SignupForm from "@/app/components/SignupForm"
 import { Metadata } from "next"
 import Link from "next/link"
 

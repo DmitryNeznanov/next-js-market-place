@@ -1,7 +1,7 @@
 import { z } from "zod"
 // import User from "@/app/models/User"
 
-export const SignupFormSchema = z.object({
+export const definations = z.object({
   email: z.string().email({ message: "Please enter a valid email" }).trim(),
   password: z
     .string()

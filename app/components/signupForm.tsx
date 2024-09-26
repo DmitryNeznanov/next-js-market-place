@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { signup } from "@/app/actions/auth"
+import { signup } from "@/app/actions/signup"
 import { useFormState, useFormStatus } from "react-dom"
 
 export default function SignupForm() {
@@ -12,7 +12,7 @@ export default function SignupForm() {
       <form action={action}>
         <div className="flex flex-col">
           <input
-            className="input-primary [user-valid:bg-error]"
+            className="input-primary"
             type="email"
             name="email"
             placeholder="Email Address"

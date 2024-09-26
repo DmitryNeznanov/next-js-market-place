@@ -1,11 +1,10 @@
 "use server"
-import { FormState, SignupFormSchema } from "../lib/definations"
+import { FormState, definations } from "../lib/definations"
 import User from "@/app/models/User"
-import bcrypt from "bcrypt"
 import { createSession } from "../lib/session"
 import { redirect } from "next/navigation"
 export async function signup(state: FormState, formData: FormData) {
-  const validatedFeilds = SignupFormSchema.safeParse({
+  const validatedFeilds = definations.safeParse({
     email: formData.get("email"),
     password: formData.get("password"),
   })
@@ -16,19 +15,19 @@ export async function signup(state: FormState, formData: FormData) {
   }
   const { email, password } = validatedFeilds.data
 
-  const hasedPassword = await bcrypt.hash(password, 10)
-  const users = await User.find({
+  const users = await User.findOne({
     email: email,
   })
 
-  if (users.length === 0) {
+  if (users === null) {
     await User.create({
       email: email,
-      password: hasedPassword,
+      password: password,
     })
     console.log("User is created!")
-    const newUser = await User.find({ email: email })
-    const sessionId = newUser[0]._id
+    const newUser = await User.findOne({ email: email })
+    const sessionId = newUser._id
+    console.log(sessionId)
 
     await createSession(sessionId)
     redirect("/")

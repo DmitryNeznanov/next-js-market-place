@@ -3,7 +3,7 @@
 # Auth
 - Email already registered/check
 - Keep me logged in check
-- Forgot passwors
+- Forgot password
 
 # Other
 - Links
@@ -11,7 +11,6 @@
 
 ### Questions ?
 
-- TS for mngoose Schemas ?
 - signin && signup 1 file ? 
 
 

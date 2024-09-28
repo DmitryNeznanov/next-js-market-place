@@ -31,5 +31,5 @@ export async function signup(state: FormState, formData: FormData) {
 
     await createSession(sessionId)
     redirect("/")
-  } else console.log("Email already registered")
+  } else console.log("Email already registered!")
 }

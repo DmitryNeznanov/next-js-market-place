@@ -12,10 +12,12 @@ export const definations = z.object({
       message: "Contain at least one special character.",
     })
     .trim(),
-  // .refine((user) => 2121 === 2121, {
-  //   message: "Email already registered",
-  // }),
+  // .refine(async (e) => {
+  //   const users = await User.findOne({ email: e })
+  //   return users.includes(e)
+  // }, ""),
 })
+
 export type FormState =
   | {
       errors?: {

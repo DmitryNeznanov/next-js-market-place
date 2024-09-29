@@ -2,6 +2,7 @@
 import Link from "next/link"
 import DarkModeSwitcher from "./DarkModeSwitcher"
 import { usePathname } from "next/navigation"
+import { logout } from "../actions/logout"
 
 export default function Navigation({
   toggleHamburgerMenu,
@@ -43,7 +44,10 @@ export default function Navigation({
               ["blog", "/blog?page=1"],
               ["contact", "/contact"],
             ].map(([title, link], i) => (
-              <li key={i}>
+              <li
+                className="flex items-center"
+                key={i}
+              >
                 <Link
                   className={`text-xl capitalize ${
                     pathName.match(title) ||

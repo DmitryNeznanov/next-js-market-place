@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid"
 import Image from "next/image"
 import salva from "@/public/salva.png"
 
@@ -7,7 +6,7 @@ export const metadata: Metadata = {
   title: "Sheen | About",
   description: "About page",
 }
-export default function About() {
+export default function AboutPage() {
   return (
     <section className="mx-auto max-w-[57rem]">
       <section>
@@ -37,10 +36,10 @@ export default function About() {
             [
               "Curabitur nec aliquet erat, et dictum nulla. eugiat elit tincidunt in. Curabitur nec aliquet erat, et dictum nulla.Sed quis maximus nunc. Nulla eu erat vel nunc consectetur ornare.Sed quis maximus nunc..",
             ],
-          ].map(([text]) => (
+          ].map(([text], i) => (
             <p
               className=""
-              key={uuidv4()}
+              key={i}
             >
               {text}
             </p>
@@ -65,10 +64,10 @@ export default function About() {
             [
               "Customize everything – colors, spacing, fonts, sizes etc. – via a simple settings file",
             ],
-          ].map(([text]) => (
+          ].map(([text], i) => (
             <li
               className="li-dot"
-              key={uuidv4()}
+              key={i}
             >
               <p className="">{text}</p>
             </li>

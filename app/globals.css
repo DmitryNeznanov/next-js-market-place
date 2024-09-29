@@ -67,7 +67,7 @@
     @apply py-2 px-6 border border-primary bg-transparent text-primary font-DMSans text-base capitalize hover:bg-accent hover:border-accent hover:cursor-pointer;
   }
   .input-primary {
-    @apply py-3 border-b-[.0625rem] border-b-gray-light bg-transparent text-gray-light font-DMSans text-small placeholder:text-inherit focus:outline-none focus:placeholder:text-transparent;
+    @apply py-3 border-b-[.0625rem] border-b-gray-light bg-transparent text-gray-light font-DMSans text-small placeholder:text-inherit focus:outline-none focus:placeholder:text-transparent focus:border-b-accent;
   }
   .accent-underline {
     @apply underline decoration-accent underline-offset-8;

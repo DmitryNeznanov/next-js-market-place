@@ -1,12 +1,10 @@
-import { v4 as uuidv4 } from "uuid"
-
 import { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Sheen | Contact",
   description: "Contact page",
 }
 
-export default function Contact() {
+export default function ContactPage() {
   return (
     <section className="max-w-[26.875rem] md:max-w-[57rem] mx-auto flex flex-col md:flex-row md:gap-x-[6.4rem]">
       <article className="max-w-[23.563rem]">
@@ -24,10 +22,10 @@ export default function Contact() {
               "Info@Brilliance-team.com",
               "mailto:Info@Brilliance-team.com",
             ],
-          ].map(([title, address, link]) => (
+          ].map(([title, address, link], i) => (
             <p
               className="flex flex-col  uppercase not-italic"
-              key={uuidv4()}
+              key={i}
             >
               {title}
               <a

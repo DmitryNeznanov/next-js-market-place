@@ -1,7 +1,6 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import { Suspense } from "react"
-import Filters from "./components/Filters"
 import Link from "next/link"
 import Portfolio from "./models/Portfolio"
 
@@ -9,11 +8,7 @@ export const metadata: Metadata = {
   title: "Sheen | Home",
   description: "Home page",
 }
-export default async function HomePage({
-  searchParams,
-}: {
-  searchParams: { filters: string; page: number }
-}) {
+export default async function HomePage() {
   const data = (await Portfolio.find()) as Portfolio[]
 
   return (
@@ -24,9 +19,7 @@ export default async function HomePage({
           I’m a designer based in San Francisco.
         </p>
       </article>
-      {/* <div className="mt-[4.4rem] lg:mt-[8.875rem]">
-        <Filters categories={itemCategories} />
-      </div> */}
+
       <Suspense
         fallback={<h2 className="text-[4rem]/[4rem]">Items is loading...</h2>}
       >
